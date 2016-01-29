@@ -1,0 +1,124 @@
+<html>
+<head>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$('#list').children().remove();
+	
+	getAllFeedback();
+});
+
+function submit(content) {
+	if(!content || content.val().length == 0) {
+		alert("Content is empty");
+		return;
+	}
+	
+	$.ajax({
+		type: 'post',
+		url: '/feedback/publish',
+		data: {content: content.val()},
+		success: function(result) {
+				try {
+					var packet = JSON.parse(result);
+					if(packet.cmd == 'kFeedback') {
+						content.val('');
+						alert('Succeeded');
+					} else {
+						alert('Failed' + result);
+					}
+				} catch(e) {
+				}
+			},
+		error: function() {
+		}
+	});
+};
+
+function getAllFeedback() {
+	$.ajax({
+		type: 'get',
+		url: '/feedback/query',
+		success: function(result) {
+				try {
+					$('#list').children().remove();
+					
+					var packet = JSON.parse(result);
+					if(packet.cmd == 'kFeedback') {
+						for(var i in packet.data.sms) {
+							var sms = packet.data.sms[i];
+							var $item = $('<div class="item"><a href="" class="usrname"></a><div class="desc" /></div>');
+							$item.attr('id', 'item' + sms.id);							
+							
+							var usrname = $item.find('.usrname');
+							usrname.text(sms.username);
+							usrname.attr('href', sms.url);
+							
+							var desc = $item.find('.desc');
+							desc.text(sms.content);
+							
+							$('#list').append($item);
+						}
+					} else {
+						alert('Failed');
+					}
+				} catch(e) {
+				}
+			},
+		error: function() {
+		}
+	});
+}
+</script>
+
+<style type="text/css">
+.list {
+    width:100%;
+	height: 400px;
+    overflow:auto;
+	overflow-x: hidden;
+	background-color:#e1e3e0;
+	border-top:1px solid #ccc;
+}
+
+.list .item {
+	height: 24px;
+}
+
+.list .item .usrname {
+	width: 15%;
+	float:left;
+}
+
+.list .item .desc {
+	width: 85%;
+	float:left;
+}
+
+.list .item .close {
+	width: 20px;
+	margin-left: -20px;
+	float:right;
+	text-align: center;
+	background-color:#fff;
+	cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+Feedback:<!--br>
+<textarea type="text" name="content" id="content" rows="8" cols="60" value=""></textarea>
+<br><br><input type="button" value="Submit" onclick="submit($('#content'));"></input>
+
+<form method="get" action="/feedback/query">
+  <input type="submit" value="Query"></input>
+</form-->
+
+<div id="list" class="list">
+	<div class="item"><a href="" class="usrname">用户名</a><div class="desc">用户反馈</div></div></div>
+</div>
+
+</body>
+</html>

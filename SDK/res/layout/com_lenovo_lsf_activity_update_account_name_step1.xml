@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:paddingLeft="36dp"
+    android:paddingRight="36dp"
+    android:background="@color/com_lenovo_lsf_appcolor"
+    android:paddingTop="26dp" >
+    
+    <TextView        
+        android:id="@+id/cur_account_tip_tview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/com_lenovo_lsf_string_current_registed_phone_number"
+        android:textColor="#757575"
+        android:textSize="14sp" />
+    
+    <TextView
+        android:id="@+id/current_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"
+        android:text="13231322222"
+        android:textColor="#191919"
+        android:textSize="18sp" />
+    
+    <TextView
+        android:id="@+id/new_account_tip_tview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="@string/com_lenovo_lsf_string_please_input_your_new_phone_number"
+        android:textColor="#191919"
+        android:textSize="14sp" />
+    
+    <EditText
+        android:id="@+id/new_account_etext"
+        style="@style/com_lenovo_lsf_edit"
+        android:layout_marginTop="8dp"
+        android:textSize="14sp"
+        android:layout_width="fill_parent"
+        android:paddingLeft="10dp"
+        android:inputType="phone"
+        android:hint="@string/com_lenovo_lsf_new_phone_number" />
+
+    <TextView
+        android:id="@+id/error_msg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:minLines="1"
+        android:textAppearance="@style/com_lenovo_lsf_text.error" />
+
+    <Button
+        android:id="@+id/next_btn"
+        style="@style/com_lenovo_lsf_button.commit"
+        android:layout_marginTop="15dp"
+        android:text="@string/com_lenovo_lsf_get_phone_verifycode" 
+        android:textColor="#3c96e1"
+        android:textSize="16sp"
+        android:enabled="false" />
+
+</LinearLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lenovo.lsf.lenovoid.ui.widget.KeyboardLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@android:color/transparent">
+    
+    <RelativeLayout
+
+        android:id="@+id/keylogin_toast_ui"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="30dip"
+        android:layout_marginRight="30dip"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/keylogin_topview">
+
+        <ImageView
+            android:id="@+id/keylogin_head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dip"
+            android:src="@drawable/keylogin_nologin"
+             />
+
+        <TextView
+            android:id="@+id/keylogin_toast_logined"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dip"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/keylogin_head"
+            android:text="@string/lenovouser_quick_welcome"
+            android:textColor="#ffffff"
+            android:textSize="14dp"
+            android:visibility="gone"/>
+
+    	<TextView
+    	    
+            android:id="@+id/keylogin_name"
+          	android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/keylogin_loading"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@id/keylogin_toast_logined"
+            android:layout_toLeftOf="@+id/keylogin_toast"
+            android:textColor="#ffffff"
+            android:textSize="14dp"/>
+
+        <RelativeLayout
+            android:id="@id/keylogin_toast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/tv_time_countdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(10)"
+                android:textColor="#ffffff"
+                android:textSize="14dp" 
+                android:visibility="gone"/>
+            
+	        <Button 
+	            android:id="@+id/account_manager"
+	            android:layout_width="wrap_content"
+	            android:layout_height="30dp"
+	            android:visibility="gone"
+	            android:padding="5dp"
+	            android:textSize="14dp"
+	            android:textColor="#eeeeee"
+	            android:background="@drawable/com_lenovo_lsf_account_manager"
+	            android:text="@string/account_manager"/>
+        </RelativeLayout>
+        
+            
+        
+    </RelativeLayout>
+
+</com.lenovo.lsf.lenovoid.ui.widget.KeyboardLayout>

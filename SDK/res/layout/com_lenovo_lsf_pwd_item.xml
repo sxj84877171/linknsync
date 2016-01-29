@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout01"
+    android:layout_width="fill_parent"
+    android:layout_height="60dp"
+    android:background="@color/com_lenovo_lsf_appcolor" >
+
+    <RelativeLayout
+        android:id="@+id/pw_relative"
+        android:layout_width="fill_parent"
+        android:layout_height="36dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginTop="20dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/com_lenovo_lsf_edite_background" >
+
+        <EditText
+            android:id="@+id/pw_password_edit"
+            android:layout_width="220dp"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+            android:background="@android:color/transparent"
+            android:hint="@string/com_lenovo_lsf_login_common_et_hint_password"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:textColorHint="#d1d1d1"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/pw_showPW"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/com_lenovo_lsf_show_password" />
+    </RelativeLayout>
+
+</RelativeLayout>

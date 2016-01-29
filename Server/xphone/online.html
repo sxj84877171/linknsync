@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="想疯了 在线人数">
+<meta name="description" content="想疯了在线人数查看">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>想疯了后台数据统计</title>
+<link rel="stylesheet" href="./css/online.css">
+<!--<link rel="stylesheet" href="css/op-base.css">-->
+<link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+<div class="container" id="container" data-domain="" data-shop-title="想疯了">
+  <article class="main" id="page-live-index">
+    <div data-reactid=".3">
+      <div class="wall-container" data-reactid=".3.0">
+        <div data-reactid=".3.0.0">
+          <canvas class="ui-meteor wall-meteor" data-reactid=".3.0.0.0" width="1620" height="1200"></canvas>
+          <div class="meteor-text-container" data-reactid=".3.0.0.1">
+            <p class="meteor-text sans-serif fadeOut" data-reactid=".3.0.0.1.$8"></p>
+          </div>
+        </div>
+        <div class="earth-background" data-reactid=".3.0.1"></div>
+        <div class="wall-board" data-reactid=".3.0.3">
+          <div class="board-background" data-reactid=".3.0.3.0"></div>
+          <div class="splendid-loader" data-reactid=".3.0.3.1">
+            <div class="level5" data-reactid=".3.0.3.1.0"></div>
+            <div class="level4" data-reactid=".3.0.3.1.1"></div>
+            <div class="level3" data-reactid=".3.0.3.1.2"></div>
+            <div class="level2" data-reactid=".3.0.3.1.3"></div>
+            <div class="center" data-reactid=".3.0.3.1.4"></div>
+          </div>
+          
+          <span class="data-clock num" data-reactid=".3.0.3.3"><span class="data-date" data-reactid=".3.0.3.3.0"></span><span class="data-time" data-reactid=".3.0.3.3.1"></span></span><span class="data-shop-title" id="data-shop-title" data-reactid=".3.0.3.4">想疯了</span>
+          <div class="data-pay-amount" data-reactid=".3.0.3.5">
+            <div class="oui-counter oui-counter-animating">
+              
+     <div id="online_contain" class="online_contain">
+		<div class="list">
+            <span class="title ol_zxrs">在线人数</span>
+            <span class="num_zxrs" id="online"></span>
+        </div>
+        
+        <div class="list">
+            <span class="title ol_sl_phone">未配对成功的手机端数量</span>
+            <span class="num_sl_phone" id="success"></span>
+        </div>
+        
+        <div class="list">
+            <span class="title ol_sl_pc">未配对成功的pc端数量</span>
+            <span class="num_sl_pc" id="failure"></span>
+        </div>
+        
+        <div class="logo_xz" id="logo_xz">
+        </div>
+        
+        <div class="list">
+            <span class="title user_all">用户数量</span>
+            <span class="num_user_all" id="num_user_all"></span>
+        </div>
+        
+        <div class="list">
+            <span class="title user_daily">日活跃用户</span>
+            <span class="num_user_daily" id="num_user_daily"></span>
+        </div>
+        
+        <div class="list">
+            <span class="title user_monthly">月活跃用户</span>
+            <span class="num_user_monthly" id="num_user_monthly"></span>
+        </div>
+        
+        
+	 </div>
+
+              
+              
+            </div>
+             
+         </div>
+         
+        
+         
+      </div>
+    </div>
+
+</div>
+
+<script src="./js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	function Online(id)
+	{
+		this.id = id;
+		this.oNum = document.getElementById(id);
+		this.oTimer = null;
+	}
+	
+	Online.prototype.getNumber = function()
+	{
+		var This = this;
+		$.ajax({
+			type: 'post',
+			url: 'http://xiangfl.com/online',
+			success: function(result){
+				if(!result)
+				{
+					return;
+				}
+				try{
+					var packet = JSON.parse(result);
+					if(This.id == 'online')
+					{
+						$(This.oNum).html(packet.online);
+					}
+					else if(This.id =='success')
+					{
+						$(This.oNum).html(packet.sources - packet.online);
+					}
+					else if( This.id == 'failure')
+					{
+						$(This.oNum).html(packet.clients - packet.online);
+					}
+					else if( This.id == 'num_user_all')
+					{
+						if(!packet.users)
+						{
+							$(This.oNum).html('');
+						}
+						else
+						{
+							$(This.oNum).html(packet.users);
+						}
+					}
+					else if( This.id == 'num_user_daily')
+					{
+						if(!packet.dau)
+						{
+							$(This.oNum).html('');
+						}
+						else
+						{
+							$(This.oNum).html(packet.dau);
+						}
+					}
+					else if( This.id == 'num_user_monthly')
+					{
+						if(!packet.mau)
+						{
+							$(This.oNum).html('');
+						}
+						else
+						{
+							$(This.oNum).html(packet.mau);
+						}
+					}
+					
+				}
+				catch(e){
+					return;
+				}
+			},
+			error: function(){
+			}
+		});
+	}
+	
+	Online.prototype.autoGetNumber = function()
+	{
+		var This = this;
+		this.oTimer = setInterval(function(){
+			This.getNumber();
+		},5000);
+	}
+	
+	//在线人数
+	var oOnline1 = new Online('online');
+	oOnline1.getNumber();
+	oOnline1.autoGetNumber();
+	
+	//未配对成功的手机端数量
+	var oOnline2 = new Online('success');
+	oOnline2.getNumber();
+	oOnline2.autoGetNumber();
+	
+	//未配对成功的pc端数量
+	var oOnline3 = new Online('failure');
+	oOnline3.getNumber();
+	oOnline3.autoGetNumber();
+	
+	//用户数量
+	var oOnline4 = new Online('num_user_all');
+	oOnline4.getNumber();
+	oOnline4.autoGetNumber();
+	
+	//日活跃数
+	var oOnline5 = new Online('num_user_daily');
+	oOnline5.getNumber();
+	oOnline5.autoGetNumber();
+	
+	//月活跃用户
+	var oOnline6 = new Online('num_user_monthly');
+	oOnline6.getNumber();
+	oOnline6.autoGetNumber();
+	
+	
+	function Time()
+	{
+		this.oData_date = $('.data-date');
+		this.oData_time = $('.data-time');
+		this.oTimer = null;
+	}
+	
+	Time.prototype.toDouble = function(num)
+	{
+		if(num < 10)
+		{
+			return '0' + num;
+		}
+		else
+		{
+			return '' + num;
+		}
+	}
+	
+	Time.prototype.setTime = function()
+	{
+		var oDate = new Date();
+		var year = oDate.getFullYear();
+		var month = oDate.getMonth() + 1;
+		var date = oDate.getDate();
+		var hours = oDate.getHours();
+		var minutes = oDate.getMinutes();
+		var seconds = oDate.getSeconds();
+		
+		
+		this.oData_date.html(year + '-' + this.toDouble(month) + '-' + this.toDouble(date));
+		this.oData_time.html(this.toDouble(hours) + ':' + this.toDouble(minutes) + ':' + this.toDouble(seconds));
+		
+		//alert(year + '-' + month + '-' + date + ' ' + hours + ':' + minutes + ':' + seconds);
+	}
+	
+	Time.prototype.autoSetTime = function()
+	{
+		var This = this;
+		this.oTimer = setInterval(function(){
+			This.setTime();
+		},1000);
+	}
+	//时间对象
+	var oTime = new Time();
+	oTime.autoSetTime();
+});
+</script>
+</body>
+</html>

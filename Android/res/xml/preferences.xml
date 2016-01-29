@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Local Settings" android:key="pref_cat_store">
+
+        <EditTextPreference android:title="Http server address"
+        android:key="serverAddress"
+        android:summary="Http server address"
+        android:defaultValue="115.29.178.5"
+        android:dialogTitle="Http server address"
+        android:dialogMessage="Http server(Node.js) address"
+         />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

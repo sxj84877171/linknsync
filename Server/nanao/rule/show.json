@@ -1,0 +1,39 @@
+{
+    "rule": [
+        {
+            "data": {},
+            "show": false,
+            "packageName": "android",
+            "version": ""
+        },
+        {
+            "data": {},
+            "show": false,
+            "packageName": "com.miui.home",
+            "version": ""
+        }
+		,
+        {
+            "data": {},
+            "show": false,
+            "packageName": "com.android.providers.contacts",
+            "version": ""
+        }
+		,
+        {
+            "data": {},
+            "show": false,
+            "packageName": "com.miui.securitycenter",
+            "version": ""
+        }
+		,
+        {
+            "data": {},
+            "show": false,
+            "packageName": "com.android.updater",
+            "version": ""
+        }
+		
+		
+    ]
+}

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/change_keyboardLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#0b7cda"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/accountbinding_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="52dp" 
+        android:background="@color/com_lenovo_lsf_title_bg">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="52dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/com_lenovo_lsf_title_bg" >
+
+            <ImageView
+                android:id="@+id/accountbinding_title_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/com_lenovo_lsf_title_back_selector"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/accountbinding_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/accountbinding_title_back"
+                android:gravity="center_vertical"
+                android:text="@string/com_lenovo_lsf_lenovouser_app_name"
+                android:textColor="#191919"
+                android:textSize="22sp" />
+        </RelativeLayout>
+        
+    </LinearLayout>
+    
+    <ImageView
+        android:id="@+id/iv_account_binding_divider"
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/accountbinding_title_layout"
+        android:background="#d1d1d1" />
+    
+	<ScrollView
+	    android:id="@+id/account_bingding_scrollview"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_below="@+id/iv_account_binding_divider"
+	    android:background="#fafafa"
+	    android:fillViewport="true" >
+
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical" >
+
+	        <RelativeLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_marginBottom="28dp"
+	            android:layout_marginTop="25dp"
+	            android:gravity="center_vertical" >
+
+	            <ImageView
+	                android:id="@+id/photo"
+	                android:layout_width="66dp"
+	                android:layout_height="66dp"
+	                android:layout_alignParentLeft="true"
+	                android:layout_marginLeft="36dp"
+	                android:adjustViewBounds="true"
+	                android:scaleType="fitCenter"
+	                android:src="@drawable/com_lenovo_lsf_photo_qq" />
+
+	            <TextView
+	                android:id="@+id/binding_welcome_label"
+	                style="@style/com_lenovo_lsf_head_text"
+	                android:layout_centerVertical="true"
+	                android:layout_marginLeft="18dp"
+	                android:layout_toRightOf="@+id/photo"
+	                android:maxLines="1"
+	                android:text="@string/com_lenovo_lsf_account_binding_welcome"
+	                android:textSize="18sp" />
+
+	            <TextView
+	                android:id="@+id/binding_welcome"
+	                style="@style/com_lenovo_lsf_head_text"
+	                android:layout_centerVertical="true"
+	                android:layout_marginRight="18dp"
+	                android:layout_toRightOf="@+id/binding_welcome_label"
+	                android:textSize="18sp" />
+	        </RelativeLayout>
+
+	        <LinearLayout
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical" >
+
+	            <LinearLayout
+	                android:id="@+id/account_binding_layout"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginLeft="36dp"
+	                android:layout_marginRight="36dp"
+	                android:gravity="center_vertical"
+	                android:orientation="vertical" >
+
+	                <TextView
+	                    android:id="@+id/account_binding_description"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:text="@string/com_lenovo_lsf_account_binding_description"
+	                    android:textColor="#191919"
+	                    android:textSize="16sp" />
+
+	                <LinearLayout
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:layout_marginTop="16dp"
+	                    android:gravity="center_vertical"
+	                    android:orientation="horizontal"
+	                    android:visibility="visible" >
+
+	                    <TextView
+	                        android:layout_width="wrap_content"
+	                        android:layout_height="wrap_content"
+	                        android:text="@string/com_lenovo_lsf_binding_string_account"
+	                        android:textColor="#191919"
+	                        android:textSize="16sp" />
+
+	                    <TextView
+	                        android:id="@+id/binging_account_name"
+	                        android:layout_width="wrap_content"
+	                        android:layout_height="wrap_content"
+	                        android:layout_marginLeft="10dp"
+	                        android:textColor="#191919"
+	                        android:textSize="16sp" />
+	                </LinearLayout>
+	            </LinearLayout>
+
+	            <LinearLayout
+	                android:id="@+id/binding_another_layout"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginRight="36dp"
+	                android:layout_marginTop="25dp"
+	                android:gravity="right" >
+
+	                <TextView
+	                    android:id="@+id/binding_another"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:clickable="true"
+	                    android:text="@string/com_lenovo_lsf_binding_another_account"
+	                    android:textColor="#0b7cd9"
+	                    android:textSize="12sp" />
+	            </LinearLayout>
+
+	            <LinearLayout
+	                android:id="@+id/account_binging_input_layout"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginLeft="36dp"
+	                android:layout_marginRight="36dp"
+	                android:orientation="vertical" >
+
+	                <TextView
+	                    android:id="@+id/account_binding_input_textview"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:text="@string/com_lenovo_lsf_account_binding_input_description"
+	                    android:textColor="#191919"
+	                    android:textSize="16sp" />
+
+	                <RelativeLayout
+	                    android:id="@+id/re_binding_accountname"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="36dp"
+	                    android:layout_marginTop="8dp"
+	                    android:background="@drawable/com_lenovo_lsf_edite_background" >
+
+	                    <ImageView
+	                        android:id="@+id/account_binging_account"
+	                        android:layout_width="wrap_content"
+	                        android:layout_height="wrap_content"
+	                        android:layout_alignParentLeft="true"
+	                        android:layout_marginBottom="2dp"
+	                        android:layout_marginLeft="2dp"
+	                        android:layout_marginTop="2dp"
+	                        android:src="@drawable/com_lenovo_lsf_text_field_icon_accountname" />
+
+	                    <AutoCompleteTextView
+	                        android:id="@+id/account_binging_edit_account"
+	                        style="@style/login_autocomplete_drop"
+	                        android:layout_width="220dp"
+	                        android:layout_height="fill_parent"
+	                        android:layout_toLeftOf="@+id/b_account_bindingclearAccountName"
+	                        android:layout_toRightOf="@+id/account_binging_account"
+	                        android:background="@android:color/transparent"
+	                        android:completionThreshold="1"
+	                        android:singleLine="true"
+	                        android:layout_marginLeft="5dp"
+	                        android:dropDownAnchor="@+id/re_binding_accountname"
+	                        android:dropDownHeight="144dp"
+	                        android:hint="@string/com_lenovo_lsf_register_string_accounthint"
+	                        android:textColorHint="#d1d1d1"
+	                        android:textSize="14sp" />
+
+	                    <requestFocus />
+
+	                    <Button
+	                        android:id="@+id/b_account_bindingclearAccountName"
+	                        android:layout_width="30dp"
+	                        android:layout_height="wrap_content"
+	                        android:layout_alignParentRight="true"
+	                        android:layout_marginBottom="2dp"
+	                        android:layout_marginRight="2dp"
+	                        android:layout_marginTop="2dp"
+	                        android:visibility="invisible"
+	                        android:background="@drawable/com_lenovo_lsf_clear_edittext" />
+
+	                </RelativeLayout>
+
+	                <RelativeLayout
+	                    android:id="@+id/re_binding_password"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="36dp"
+	                    android:layout_marginTop="20dp"
+	                    android:background="@drawable/com_lenovo_lsf_edite_background" >
+
+	                    <ImageView
+	                        android:id="@+id/account_binging_password"
+	                        android:layout_width="wrap_content"
+	                        android:layout_height="wrap_content"
+	                        android:layout_alignParentLeft="true"
+	                        android:layout_marginBottom="2dp"
+	                        android:layout_marginLeft="2dp"
+	                        android:layout_marginTop="2dp"
+	                        android:src="@drawable/com_lenovo_lsf_text_field_icon_password" />
+
+	                    <EditText
+	                        android:id="@+id/account_binging_edit_password"
+	                        android:layout_width="220dp"
+	                        android:layout_height="fill_parent"
+	                        android:layout_toLeftOf="@+id/b_account_bindingshowPW"
+	                        android:layout_toRightOf="@+id/account_binging_password"
+	                        android:background="@android:color/transparent"
+	                        android:hint="@string/com_lenovo_lsf_account_binding_password"
+	                        android:inputType="textPassword"
+	                        android:textColorHint="#d1d1d1"
+	                        android:layout_marginLeft="5dp"
+	                        android:maxLength="20"
+	                        android:textSize="14sp" />
+
+	                    <Button
+	                        android:id="@+id/b_account_bindingshowPW"
+	                        android:layout_width="30dp"
+	                        android:layout_height="wrap_content"
+	                        android:layout_alignParentRight="true"
+	                        android:layout_marginBottom="2dp"
+	                        android:layout_marginRight="2dp"
+	                        android:layout_marginTop="2dp"
+	                        android:background="@drawable/com_lenovo_lsf_show_password" />
+
+	                </RelativeLayout>
+
+	            </LinearLayout>
+	        </LinearLayout>
+
+	        <LinearLayout
+	            android:id="@+id/layout_error"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="5dp"
+	            android:layout_marginLeft="36dp"
+	            android:layout_marginRight="36dp" >
+
+	            <TextView
+	                android:id="@+id/text_error"
+	                android:textSize="12sp"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:textColor="#ff0000" />
+	        </LinearLayout>
+	        
+	        <Button
+	            android:id="@+id/account_binding_ok"
+	            android:layout_width="fill_parent"
+	            android:layout_height="36dp"
+	            android:layout_marginLeft="36dp"
+	            android:layout_marginTop="16dp"
+	            android:layout_marginRight="36dp"
+	            android:background="@drawable/com_lenovo_lsf_btn_inter_onekey_selector_up"
+	            android:text="@string/com_lenovo_lsf_lenovouser_btn_ok"
+	            android:textColor="@android:color/white"
+	            android:textSize="16sp" />
+	        
+           <RelativeLayout
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="33dp" >
+
+              <TextView
+                  android:id="@+id/binding_text_forgetpwd"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_centerHorizontal="true"
+                  android:clickable="true"
+                  android:text="@string/com_lenovo_lsf_login_string_forgetpwd"
+                  android:textColor="#0062b3"
+                  android:textSize="12sp" />
+          </RelativeLayout>
+
+	    </LinearLayout>
+	</ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,694 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="html_normal">
+<head>
+<meta  charset="UTF-8" />
+<title>LINKit</title>
+<link rel="stylesheet" type="text/css" media="all" href="css/op.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/vex.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/vex-theme-os.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/emoji.css" />
+<script type="text/javascript" src="./js/config.js"></script>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/jquery.qrcode.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/jquery.blockUI.js"></script>
+<script src="js/jquery.extension.js"></script>
+<script src="js/vex.combined.min.js"></script>
+<script src="http://passport.lenovo.com/resources/lenovoid.js"></script>
+<script src="js/emoji.js"></script>
+<script src="js/token.js"></script>
+<script src="js/lz-string-1.3.3-min.js"></script>
+<script src="js/pinyin.js"></script>
+<script src="./js/Linkit_const.js"></script>
+<script  src="language/lang_en.js"></script>
+<script  src="js/lang.js"></script>
+<script src="js/session_manager.js"></script>
+<script src="//static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
+<script src="js/session.js"></script>
+
+<script type="text/javascript">
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+   ga('create', 'UA-53918042-1', 'auto');
+   ga('send', 'pageview');
+  vex.defaultOptions.className = 'vex-theme-os';
+  
+  $(function(){
+	$('#connect_install_tip2').attr('href', downloadUrl_android);
+  });
+   </script>
+</head>
+<body class="body_normal">
+<div id="parent" class="">
+ <div id="LinkPage" class="hide">
+  <div  class="content"> LinkPage </div>
+ </div>
+ <div id="InteractPage" class="active" >
+  <div class="header"></div>
+  <div class="content">
+   
+   <div id="main" style="display:block;">
+    <div class="tab">
+     <div id="myheader" class="myheader"></div>
+     <div id="tab_sms" class="hov tab_sms"><div class="unread">2</div></div>
+     <div id="tab_contact" class="hov tab_contact"></div>
+     <div id="tab_call" class="hov tab_call"></div>
+     <div id="tab_notice" class="hov tab_notice"><div class="unread">2</div></div>
+	 <div id="tab_sheep" class="hov tab_sheep"><div class="new"></div></div>
+	 <div id="tab_feedback" class="hov tab_feedback"></div>
+     <div id="myheader_box_1" class="myheader_box1" style="display:none">
+     	<div class="info">与服务器的连接已断开，请重新连接或返回主页</div>
+      <div class="reconnect">重新连接</div>
+      <div class="backhome"><a href="index.html">返回主页</a></div>
+     </div>
+     
+     <div id="myheader_box_2" class="myheader_box2" style="display:none">
+      <div class="connect">
+      	<p class="connect_username">LINKit@lenovo.com</p>
+        <p class="connect_info">已连接</p>
+      </div>
+      <div class="connect_exit"><a href="javascript:;">退出登录</a></div>
+     </div>
+
+    
+    <div id="myheader_box_3" class="myheader_box1" style="display:none">
+     	<div class="info">与手机的连接已断开，请重新连接或返回主页</div>
+        <div class="reconnect">重新连接</div>
+      <div class="backhome"><a href="index.html">返回主页</a></div>
+     </div>
+	 <div class="feedback_box">
+		<div class="feedback_box_content">
+			<h2 id="forward">反馈建议</h2>
+			<p id="forwarding">有什么想对LINKit团队说的，都可以在这里写下来，欢迎您提供宝贵的意见。</p>
+			<textarea class="feedBack_content_msg"></textarea>
+			<div class="feedback_btn">
+				<input class="feedback_cancel" type="button" value="取 消" />
+				<input class="feedback_canfirm"type="button" value="提 交" />
+			</div>
+		</div>
+		<div class="success_box">
+			<div class="feedBack_success">提交成功！</div>
+			<input class="success_box_canfirm" type="button" value="确 定" />
+		</div>
+		<a href="javascript:;" class="triangle_left"></a>
+	 </div>
+    </div>
+    
+    <div id="frame" class="frame">
+    
+    	<div id="link_connect" class="link_connect" style="display:block;">
+			<div class="success_link">
+				<div id="connect_web" class="connect_left connect_web" style="display:none;">
+					<p id="connect_web_t1" class="connect_t1">LINKit，轻松互联</p>
+					<p id="connect_web_t2" class="connect_t2">连接电脑与手机的应用</p>
+					<p id="connect_web_t3" class="connect_t2">支持收发多种消息、通话、通知、群发短信</p>
+					<p id="connect_web_t4" class="connect_t3">可直接扫描右方二维码连接</p>
+					<p id="connect_web_t5" class="connect_t4">如果不想每次扫描，我们提供：</p>
+					<p id="connect_web_t6" class="connect_t5">全新 Windows客户端</p>
+					<a class="win_download_btn" id="win_download_btn" href="#" target="_blank" >免费下载</a>
+					<p id="connect_web_t7" class="connect_t2">更快捷，更高效</p>
+				</div>
+				
+				<div id="connect_win" class="connect_left connect_win" style="display:block;">
+					<p id="connect_win_t1" class="connect_t1">LINKit，轻松互联</p>
+					<p id="connect_win_t2" class="connect_t2">连接电脑与手机的应用</p>
+					<p id="connect_win_t3" class="connect_t2">支持收发多种消息、通话、通知、群发短信</p>
+					<p id="connect_win_t4" class="connect_t3">电脑和手机同时登录，无需扫描，更方便</p>
+					<a class="login_btn" id="login_btn" href="https://passport.lenovo.com/wauthen/login?lenovoid.action=uilogin&amp;lenovoid.realm=www.thelinkit.com&amp;lenovoid.uinfo=username&amp;lenovoid.ctx=&amp;lenovoid.cb=http://localhost/getusername&amp;lenovoid.source=browser:www.lenovo.com.cn&amp;intcmp=lenovoID_log" >Lenovo ID 登录</a>
+					<!--<a class="sign_up" id="sign_up" href="#" target="_blank" >还没有Lenovo ID？立即注册</a>-->
+					
+				</div>
+				
+				<div id="connect_connected" class="connect_left connect_connected" style="display:none;">
+					<p id="connect_connected_t1" class="connect_t1">LINKit@Lenovo.com</p>
+					<p id="connect_connected_t2" class="connect_t2">登录成功！</p>
+					<p id="connect_connected_t3" class="connect_t3">请在手机端登录Lenovo ID
+	</p>
+					<!--<p id="connect_connected_t4" class="connect_t3">或扫描右方二维码完成连接</p>-->
+					<a class="exit_btn" id="exit_btn" href="javascript:;" >退出登录</a>
+					
+				</div>
+				
+				  <div class="connect_section">
+					  <div id="connect_qrcode">
+					  <div id="connect_qrcode_load_fail" style="display:none">图片加载失败，请<a href="#" id="connect_qrcode_load_fail_retry">重试</a></div>
+					  </div>
+					  <div id="connect_desc">
+					   <p id="connect_desc1">打开手机端LINKit</p>
+					   <p id="connect_desc2">扫描上面的二维码进行连接</p>
+					  </div>
+					  
+				  </div>
+				  
+				  <div class="connect_line"></div>
+				  <div id="connect_install" style="display:block;">
+						<i class="normal_text_i" id = "connect_install_tip1">还没安装手机端LINKit?</i> <a id="connect_install_tip2" href="index.html">点击这里立即安装>></a>
+				  </div>
+                  <div id="connect_client" style="display:none;">
+						<i class="normal_text_i" id = "connect_client_tip1">已连接设备：</i> <span id="connect_client_tip2" >Moto X pro</span>
+				  </div>
+			</div>
+			<div class="fail_link" style="display:none">
+            
+            <div class="fail_img"></div>
+            <p class="fail_txt">与服务器连接已断开，请检查您的网络设置。</p>
+            
+            </div>
+        </div>
+   
+   
+     <div id="link_sms" class="link_sms" style="display:none;">
+      <div class="left">
+       <div class="search_box" id="search_box_sms">
+        <div class="Message_loading">
+        	<span class="loading_font">消息加载中…</span>
+        	<div class="message_Loading_content gradient"></div>
+        </div>
+        <input type="text" class="search_input" id="search_input_sms" onfocus="searchOnFocusSms(this)" onblur="searchOnBlurSms(this)" placeholder="搜索消息"/>
+        <div class="search_icon"></div>
+        <a class="search_clear" id="search_clear_sms" href="javascript:void(0)" title="Clear"></a> </div>
+       <div class="info_list">
+        <div id="session_list" class="contact_panel active">
+         <div class="item">
+          <div class='item_content'>
+           <div class="header_layout">
+            <div class="header"></div>
+            <div class="header_border"></div>
+            <div class="unread">2</div>
+            <div class="message_icon"></div>
+           </div>
+           <div class="text_layout">
+            <!--<div class="name">张三</div>
+            <div class="latest">你最近好吗？你最近好吗？你最近好吗？你最近好吗？</div>-->
+           </div>
+           <div class="loading_bar"></div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div id="link_sms_new" class="link_sms_new" >
+       	<div id="link_sms_new_btn" class="btn">新建短信</div>
+       </div>
+      </div>
+      <div class="right">
+       <div class="session_panel">
+        <div class="right_panel">
+         <div class="title">
+		  <div class="menu">
+          <div class="menu_content">
+           <div class="delete needws"></div>
+           <div class="forward"></div>
+           <div class="select select_all"></div>
+          </div>
+         </div>
+          <p id="session_name">Ben Wang </p>
+          <div id="sms_callit" class="sms_callit"></div>
+          <div id="sms_menu" class="sms_menu"></div>
+          <div id="message_icon_right" class="message_icon_right" style="display:none;"></div>
+          
+         </div>
+		 <div id="sms_menu_list" class="sms_menu_list" style="display:none;">
+            <div class="is_show_call">显示通话记录</div>
+          </div>
+         <div class="number_list">
+          <div class="new_sms">新建短信:</div>
+          <input type="text" class="input_box" id="input_phonenum_tips" placeholder="输入联系人名称或号码，如输入多个联系人用分号隔开">
+          </input>
+          <div class="add_contact"></div>
+          <div class="contact_list_panel">
+           <div class="search">
+            <div class="search_box">
+             <input type="text" class="search_input" id="search_input_new_sms" placeholder="查找">
+             </input>
+             <div class="search_icon"></div>
+             <a class="search_clear" id="search_clear_contact" href="javascript:void(0)" title="Clear"></a> </div>
+           </div>
+           <i class="triangle"></i>
+           <div class="contact_list"> </div>
+           <div class="submit">
+            <input type="submit" class="ok" id="ok" value="确定"/>
+            <input type="submit" class="ok" id="cancel" value="取消"/>
+           </div>
+          </div>
+         </div>
+         
+        </div>
+        <div class="list">
+         <div class="item">
+          <div class="header_left">
+           <div class="user_header"></div>
+           <div class="board"></div>
+          </div>
+          <div class="message_body_left"> <i class="triangle_left"></i>
+           <div class="message_panel">
+            <div class="message_text_left"><span class="massage_call"></span><span class="massage_text">Hey,Jane,are you there?</span></div>
+            <div class="time">2014-09-18&nbsp;18:23</div>
+            <div class="click"></div>
+           </div>
+          </div>
+         </div>
+         <div class="blank"></div>
+        </div>
+        <div class="input_editor">
+         <div class="emoji_warp"> <a title=":smile:" href="javascript:;" class="emoji101 emojis"></a> <a title=":blush:" href="javascript:;" class="emoji102 emojis"></a> <a title=":smiley:" href="javascript:;" class="emoji103 emojis"></a> <a title=":relaxed:" href="javascript:;" class="emoji104 emojis"></a> <a title=":wink:" href="javascript:;" class="emoji105 emojis"></a> <a title=":heart_eyes:" href="javascript:;" class="emoji106 emojis"></a> <a title=":kissing_heart:" href="javascript:;" class="emoji107 emojis"></a> <a title=":kissing_closed_eyes:" href="javascript:;" class="emoji108 emojis"></a> <a title=":flushed:" href="javascript:;" class="emoji109 emojis"></a> <a title=":grin:" href="javascript:;" class="emoji110 emojis"></a> <a title=":relieved:" href="javascript:;" class="emoji111 emojis"></a> <a title=":stuck_out_tongue_winking_eye:" href="javascript:;" class="emoji112 emojis"></a> <a title=":stuck_out_tongue_closed_eyes:" href="javascript:;" class="emoji113 emojis"></a> <a title=":unamused:" href="javascript:;" class="emoji114 emojis"></a> <a title=":smirk:" href="javascript:;" class="emoji115 emojis"></a> <a title=":sweat:" href="javascript:;" class="emoji201 emojis"></a> <a title=":pensive:" href="javascript:;" class="emoji202 emojis"></a> <a title=":disappointed:" href="javascript:;" class="emoji203 emojis"></a> <a title=":confounded:" href="javascript:;" class="emoji204 emojis"></a> <a title=":disappointed_relieved:" href="javascript:;" class="emoji205 emojis"></a> <a title=":cold_sweat:" href="javascript:;" class="emoji206 emojis"></a> <a title=":fearful:" href="javascript:;" class="emoji207 emojis"></a> <a title=":persevere:" href="javascript:;" class="emoji208 emojis"></a> <a title=":cry:" href="javascript:;" class="emoji209 emojis"></a> <a title=":sob:" href="javascript:;" class="emoji210 emojis"></a> <a title=":joy:" href="javascript:;" class="emoji211 emojis"></a> <a title=":astonished:" href="javascript:;" class="emoji212 emojis"></a> <a title=":scream:" href="javascript:;" class="emoji213 emojis"></a> <a title=":angry:" href="javascript:;" class="emoji214 emojis"></a> <a title=":rage:" href="javascript:;" class="emoji215 emojis"></a> <a title=":sleepy:" href="javascript:;" class="emoji301 emojis"></a> <a title=":mask:" href="javascript:;" class="emoji302 emojis"></a> <a title=":imp:" href="javascript:;" class="emoji303 emojis"></a> <a title=":alien:" href="javascript:;" class="emoji304 emojis"></a> <a title=":heart:" href="javascript:;" class="emoji305 emojis"></a> <a title=":broken_heart:" href="javascript:;" class="emoji306 emojis"></a> <a title=":cupid:" href="javascript:;" class="emoji307 emojis"></a> <a title=":sparkles:" href="javascript:;" class="emoji308 emojis"></a> <a title=":star:" href="javascript:;" class="emoji309 emojis"></a> <a title=":exclamation:" href="javascript:;" class="emoji310 emojis"></a> <a title=":question:" href="javascript:;" class="emoji311 emojis"></a> <a title=":zzz:" href="javascript:;" class="emoji312 emojis"></a> <a title=":sweat_drops:" href="javascript:;" class="emoji313 emojis"></a> <a title=":musical_note:" href="javascript:;" class="emoji314 emojis"></a> <a title=":fire:" href="javascript:;" class="emoji315 emojis"></a> <a title=":hankey:" href="javascript:;" class="emoji401 emojis"></a> <a title=":thumbsup:" href="javascript:;" class="emoji402 emojis"></a> <a title=":thumbsdown:" href="javascript:;" class="emoji403 emojis"></a> <a title=":punch:" href="javascript:;" class="emoji404 emojis"></a> <a title=":v:" href="javascript:;" class="emoji405 emojis"></a> <a title=":point_up_2:" href="javascript:;" class="emoji406 emojis"></a> <a title=":point_down:" href="javascript:;" class="emoji407 emojis"></a> <a title=":point_right:" href="javascript:;" class="emoji408 emojis"></a> <a title=":point_left:" href="javascript:;" class="emoji409 emojis"></a> <a title=":point_up:" href="javascript:;" class="emoji410 emojis"></a> <a title=":muscle:" href="javascript:;" class="emoji411 emojis"></a> <a title=":couplekiss:" href="javascript:;" class="emoji412 emojis"></a> <a title=":couple_with_heart:" href="javascript:;" class="emoji413 emojis"></a> <a title=":boy:" href="javascript:;" class="emoji414 emojis"></a> <a title=":girl:" href="javascript:;" class="emoji415 emojis"></a> <a title=":woman:" href="javascript:;" class="emoji501 emojis"></a> <a title=":man:" href="javascript:;" class="emoji502 emojis"></a> <a title=":angel:" href="javascript:;" class="emoji503 emojis"></a> <a title=":skull:" href="javascript:;" class="emoji504 emojis"></a> <a title=":lips:" href="javascript:;" class="emoji505 emojis"></a> <a title=":sunny:" href="javascript:;" class="emoji506 emojis"></a> <a title=":umbrella:" href="javascript:;" class="emoji507 emojis"></a> <a title=":cloud:" href="javascript:;" class="emoji508 emojis"></a> <a title=":snowman:" href="javascript:;" class="emoji509 emojis"></a> <a title=":moon:" href="javascript:;" class="emoji510 emojis"></a> <a title=":zap:" href="javascript:;" class="emoji511 emojis"></a> <a title=":ocean:" href="javascript:;" class="emoji512 emojis"></a> <a title=":cat:" href="javascript:;" class="emoji513 emojis"></a> <a title=":dog:" href="javascript:;" class="emoji514 emojis"></a> <a title=":mouse:" href="javascript:;" class="emoji515 emojis"></a> <a title=":hamster:" href="javascript:;" class="emoji601 emojis"></a> <a title=":rabbit:" href="javascript:;" class="emoji602 emojis"></a> <a title=":wolf:" href="javascript:;" class="emoji603 emojis"></a> <a title=":frog:" href="javascript:;" class="emoji604 emojis"></a> <a title=":tiger:" href="javascript:;" class="emoji605 emojis"></a> <a title=":koala:" href="javascript:;" class="emoji606 emojis"></a> <a title=":bear:" href="javascript:;" class="emoji607 emojis"></a> <a title=":pig:" href="javascript:;" class="emoji608 emojis"></a> <a title=":cow:" href="javascript:;" class="emoji609 emojis"></a> <a title=":boar:" href="javascript:;" class="emoji610 emojis"></a> <a title=":monkey_face:" href="javascript:;" class="emoji611 emojis"></a> <a title=":horse:" href="javascript:;" class="emoji612 emojis"></a> <a title=":snake:" href="javascript:;" class="emoji613 emojis"></a> <a title=":bird:" href="javascript:;" class="emoji614 emojis"></a> <a title=":chicken:" href="javascript:;" class="emoji615 emojis"></a> <a title=":penguin:" href="javascript:;" class="emoji701 emojis"></a> <a title=":bug:" href="javascript:;" class="emoji702 emojis"></a> <a title=":octopus:" href="javascript:;" class="emoji703 emojis"></a> <a title=":tropical_fish:" href="javascript:;" class="emoji704 emojis"></a> <a title=":whale:" href="javascript:;" class="emoji705 emojis"></a> <a title=":dolphin:" href="javascript:;" class="emoji706 emojis"></a> <a title=":rose:" href="javascript:;" class="emoji707 emojis"></a> <a title=":hibiscus:" href="javascript:;" class="emoji708 emojis"></a> <a title=":palm_tree:" href="javascript:;" class="emoji709 emojis"></a> <a title=":cactus:  " href="javascript:;" class="emoji710 emojis"></a> <a title=":gift_heart:" href="javascript:;" class="emoji711 emojis"></a> <a title=":jack_o_lantern:" href="javascript:;" class="emoji712 emojis"></a> <a title=":ghost:" href="javascript:;" class="emoji713 emojis"></a> <a title=":santa:" href="javascript:;" class="emoji714 emojis"></a> <a title=":christmas_tree:" href="javascript:;" class="emoji715 emojis"></a> <a title=":gift:" href="javascript:;" class="emoji801 emojis"></a> <a title=":bell:" href="javascript:;" class="emoji802 emojis"></a> <a title=":tada:" href="javascript:;" class="emoji803 emojis"></a> <a title=":balloon:" href="javascript:;" class="emoji804 emojis"></a> <a title=":cd:" href="javascript:;" class="emoji805 emojis"></a> <a title=":camera:" href="javascript:;" class="emoji806 emojis"></a> <a title=":movie_camera:" href="javascript:;" class="emoji807 emojis"></a> <a title=":computer:" href="javascript:;" class="emoji808 emojis"></a> <a title=":tv:" href="javascript:;" class="emoji809 emojis"></a> <a title=":phone:" href="javascript:;" class="emoji810 emojis"></a> <a title=":unlock:" href="javascript:;" class="emoji811 emojis"></a> <a title=":lock:" href="javascript:;" class="emoji812 emojis"></a> <a title=":key:" href="javascript:;" class="emoji813 emojis"></a> <a title=":hammer:" href="javascript:;" class="emoji814 emojis"></a> <a title=":bulb:" href="javascript:;" class="emoji815 emojis"></a> <a title=":mailbox_with_mail:" href="javascript:;" class="emoji901 emojis"></a> <a title=":bath:" href="javascript:;" class="emoji902 emojis"></a> <a title=":moneybag:" href="javascript:;" class="emoji903 emojis"></a> <a title=":bomb:" href="javascript:;" class="emoji904 emojis"></a> <a title=":gun:" href="javascript:;" class="emoji905 emojis"></a> <a title=":pill:" href="javascript:;" class="emoji906 emojis"></a> <a title=":football:" href="javascript:;" class="emoji907 emojis"></a> <a title=":basketball:" href="javascript:;" class="emoji908 emojis"></a> <a title=":soccer:" href="javascript:;" class="emoji909 emojis"></a> <a title=":baseball:" href="javascript:;" class="emoji910 emojis"></a> <a title=":golf:" href="javascript:;" class="emoji911 emojis"></a> <a title=":trophy:" href="javascript:;" class="emoji912 emojis"></a> <a title=":space_invader: " href="javascript:;" class="emoji913 emojis"></a> <a title=":microphone:" href="javascript:;" class="emoji914 emojis"></a> <a title=":guitar:" href="javascript:;" class="emoji915 emojis"></a> <a title=":bikini:" href="javascript:;" class="emoji1001 emojis"></a> <a title=":crown:" href="javascript:;" class="emoji1002 emojis"></a> <a title=":closed_umbrella:" href="javascript:;" class="emoji1003 emojis"></a> <a title=":handbag:" href="javascript:;" class="emoji1004 emojis"></a> <a title=":lipstick:" href="javascript:;" class="emoji1005 emojis"></a> <a title=":ring:" href="javascript:;" class="emoji1006 emojis"></a> <a title=":gem:" href="javascript:;" class="emoji1007 emojis"></a> <a title=":coffee:" href="javascript:;" class="emoji1008 emojis"></a> <a title=":beer:" href="javascript:;" class="emoji1009 emojis"></a> <a title=":beers:" href="javascript:;" class="emoji1010 emojis"></a> <a title=":cocktail:" href="javascript:;" class="emoji1011 emojis"></a> <a title=":hamburger:" href="javascript:;" class="emoji1012 emojis"></a> <a title=":fries:" href="javascript:;" class="emoji1013 emojis"></a> <a title=":spaghetti:" href="javascript:;" class="emoji1014 emojis"></a> <a title=":sushi:" href="javascript:;" class="emoji1015 emojis"></a> <a title=":ramen:" href="javascript:;" class="emoji1101 emojis"></a> <a title=":egg:" href="javascript:;" class="emoji1102 emojis"></a> <a title=":icecream:" href="javascript:;" class="emoji1103 emojis"></a> <a title=":birthday:" href="javascript:;" class="emoji1104 emojis"></a> <a title=":apple:" href="javascript:;" class="emoji1105 emojis"></a> <a title=":airplane:" href="javascript:;" class="emoji1106 emojis"></a> <a title=":rocket:" href="javascript:;" class="emoji1107 emojis"></a> <a title=":bike:" href="javascript:;" class="emoji1108 emojis"></a> <a title=":bullettrain_side:" href="javascript:;" class="emoji1109 emojis"></a> <a title=":warning:" href="javascript:;" class="emoji1110 emojis"></a> <a title=":checkered_flag:" href="javascript:;" class="emoji1111 emojis"></a> <a title=":mens:" href="javascript:;" class="emoji1112 emojis"></a> <a title=":womens:" href="javascript:;" class="emoji1113 emojis"></a> <a title=":o:" href="javascript:;" class="emoji1114 emojis"></a> <a title=":x:" href="javascript:;" class="emoji1115 emojis"></a> <a title=":copyright:" href="javascript:;" class="emoji1201 emojis"></a> <a title=":registered:" href="javascript:;" class="emoji1202 emojis"></a> <a title=":tm:" href="javascript:;" class="emoji1203 emojis"></a> <b class="arrows icons"></b> </div>
+         <div class="emoji"></div>
+         <textarea class="content_msg"></textarea>
+         <!--	<div class="content_msg" contentEditable="true"></div> -->
+         <input type="button" class="btn" id="send" value="发送"/>
+        </div>
+       </div>
+       <div class="loading">玩命加载中...</div>
+      </div>
+     </div>
+     
+     <div id="link_contact" class="link_contact" style="display:none;">
+      <div class="left">
+       <div class="search_box" id="search_box_contact">
+        <input type="text" class="search_input" id="search_input_contact" onfocus="searchOnFocusContact(this)" onblur="searchOnBlurContact(this)" placeholder="搜索联系人"/>
+        <div class="search_icon"></div>
+        <a class="search_clear" id="search_clear_contact" href="javascript:void(0)" title="Clear"></a> </div>
+       <div class="info_list">
+        <div class="contact_load_progress" id="contact_load_progress"></div>
+        <div id="contact_list" class="contact_panel">
+         <div class="item">
+          <div class="header_layout">
+           <div class="header"></div>
+          </div>
+          <div class="text_layout">
+           <div class="name contact_name">张三</div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="right">
+       <div class="contact_panel">
+        <div class="contact">
+         <div class="header_main">
+          <div class="header_h"></div>
+          <div class="header_b"></div>
+          <div class="contact_box"> </div>
+         </div>
+         
+         <div class="send_sms fl"><span id="send_sms">发送短信</span></div>
+         <div class="contact_callit fl"><span id="contact_callit">拨打电话</span></div>
+         <div class="last" id="last_box">
+          <div class="lasttitle" id="last_title">最近</div>
+         <div class="last_list" id="last_list" >
+           <!-- <div class="last_item" id="last_item">
+            <div class="icon_sms"></div>
+            <div class="lasttxt">冬至大如年，佳节合家欢。北方冬至饺子夏至面，冬至的饺子身体暖。烹狗宰羊肉，驱寒又保健，来年好运盼。南方家家做汤圆，知是冬至天。</div>
+            <div class="lasttime">2014-12-22&nbsp;12:12</div>
+           </div>
+           <div class="last_item" id="last_item">
+            <div class="icon_sms"></div>
+            <div class="lasttxt">冬至大如年，佳节合家欢。北方冬至饺子夏至面，冬至的饺子身体暖。烹狗宰羊肉，驱寒又保健，来年好运盼。南方家家做汤圆，知是冬至天。</div>
+            <div class="lasttime">2014-12-22&nbsp;12:12</div>
+           </div>
+           <div class="last_item" id="last_item">
+            <div class="icon_sms"></div>
+            <div class="lasttxt">冬至大如年，佳节合家欢。北方冬至饺子夏至面，冬至的饺子身体暖。烹狗宰羊肉，驱寒又保健，来年好运盼。南方家家做汤圆，知是冬至天。</div>
+            <div class="lasttime">2014-12-22&nbsp;12:12</div>
+           </div>
+           <div class="last_item" id="last_item">
+            <div class="icon_sms"></div>
+            <div class="lasttxt">冬至大如年，佳节合家欢。北方冬至饺子夏至面，冬至的饺子身体暖。烹狗宰羊肉，驱寒又保健，来年好运盼。南方家家做汤圆，知是冬至天。</div>
+            <div class="lasttime">2014-12-22&nbsp;12:12</div>
+           </div>
+           <div class="last_item" id="last_item">
+            <div class="icon_sms"></div>
+            <div class="lasttxt">冬至大如年，佳节合家欢。北方冬至饺子夏至面，冬至的饺子身体暖。烹狗宰羊肉，驱寒又保健，来年好运盼。南方家家做汤圆，知是冬至天。</div>
+            <div class="lasttime">2014-12-22&nbsp;12:12</div>
+           </div>
+           <div class="last_more"> <a id="last_moretxt">查看全部</a> </div>-->
+          </div>
+         </div>
+         <div class="tips"></div>
+        </div>
+        <div class="contact_list_info">
+         <div class="choose">
+          <div style="float:left">已选择</div>
+          <div class="count" style="float:left;color:rgb(210,0,0);">3</div>
+          <div style="float:left">个联系人</div>
+         </div>
+         <div class="name_list">Leon&nbsp;Liu;&nbsp;Elvis&nbsp;sun;&nbsp;Alex&nbsp;lu;&nbsp;Elvis&nbsp;sun;</div>
+         <div class="send" id="send_sms_to_all">群发短信</div>
+        </div>
+       </div>
+       <div class="loading">玩命加载中...</div>
+      </div>
+     </div>
+     
+     <div id="link_call" class="link_call" style="display:none;">
+    	 <div class="left">
+       <div class="search_box" id="search_box_call">
+        <input type="text" class="search_input" id="search_input_call" onfocus="searchOnFocusCall(this)" onblur="searchOnBlurCall(this)" placeholder="搜索通话记录"/>
+        <div class="search_icon"></div>
+        <a class="search_clear" id="search_clear_call" href="javascript:void(0)" title="Clear"></a> </div>
+       <div class="info_list">
+        <div id="call_list" class="call_panel active">
+         <div class="item">
+          <div class='item_content'>
+           <div class="header_layout">
+            <div class="header"></div>
+           </div>
+          <!-- <div class="text_layout">
+            <div class="name">张三</div>
+            <div class="count">(4)</div>
+            <div class="time">1月12日</div>
+            <div class="latest">
+           	 <span class="callname">来电</span>
+           	 <span class="calltime">00:12:31</span>
+            </div>
+           </div>-->
+          </div>
+         </div>
+         <div class="item">
+          <div class='item_content'>
+           <div class="header_layout">
+            <div class="header"></div>
+           </div>
+           <!--<div class="text_layout">
+            <div class="name">李四</div>
+            <div class="count"></div>
+            <div class="time">1月12日</div>
+            <div class="latest">
+           	 <span class="callname">来电</span>
+           	 <span class="calltime">00:12:31</span>
+            </div>
+           </div>-->
+          </div>
+         </div>
+        </div>
+       </div>
+       <div id="link_call_new" class="link_call_new" >
+       	<div id="link_call_new_btn" class="btn">拨号</div>
+       </div>
+      </div>
+      
+      <div class="right">
+      
+      <div id="call_log" class="call_log" style="display:none;">
+      	<div class="log_top  fl">
+     	   <div class="log_header fl"></div>
+    	   <div class="log_name fl">张三</div>
+    	   <div class="log_num fl">13987654321</div>
+    	   <div class="log_call fl"></div>
+    	   <div class="log_sms fl"></div>
+       </div>
+       
+       <div class="call_bottom  fl">
+       	<div class="log_item" >
+        		<!--<div class="item_content">
+          	<div class="icon fl"></div>
+           <div class="tandc fl">
+           <div class="text fl">来电</div>
+           <div class="calltime fl">00:12:31</div>
+           </div>
+           <div class="time fl">2015/1/12星期一  15:24</div>
+          </div>    
+          <div class="item_content">
+          	<div class="icon fl"></div>
+           <div class="tandc fl">
+           <div class="text fl">来电</div>
+           <div class="calltime fl">00:12:31</div>
+           </div>
+           <div class="time fl">2015/1/12星期一  15:24</div>
+          </div>  
+          <div class="item_content">
+          	<div class="icon fl"></div>
+           <div class="tandc fl">
+           <div class="text fl">来电</div>
+           <div class="calltime fl">00:12:31</div>
+           </div>
+           <div class="time fl">2015/1/12星期一  15:24</div>
+          </div>  
+          <div class="item_content">
+          	<div class="icon fl"></div>
+           <div class="tandc fl">
+           <div class="text fl">来电</div>
+           <div class="calltime fl">00:12:31</div>
+           </div>
+           <div class="time fl">2015/1/12星期一  15:24</div>
+          </div> -->   
+        </div>   
+       </div> 
+      </div>
+      
+      <div id="call_new" class="call_new">
+  	    <div class="dial_top">
+    	   <div class="dial fl">
+          <div class="country_sel fl" style="display:none;"><span>中国(+86)</span><div class="choose"></div></div>
+           
+     	  	<input type="text" class="call_num_input fl" id="call_num_input" onfocus="" onblur="" placeholder="请输入 国家代码+电话号码"/>
+            <div class="country_box" style="display:none;">
+             <ul>
+              <li><span class="country_name" id="China">中国</span><span class="country_num">+86</span></li>
+              <li><span class="country_name" id="America">美国</span><span class="country_num">+1</span></li>
+              </ul>
+             </div>
+     	   <div class="line fl"></div>
+      	  <div class="call_num">
+        		<div class="num_1 fl"><span class="num">1</span></div>
+          <div class="num_1 fl"><span class="num">2</span><span class="letter">ABC</span></div>
+          <div class="num_1 fl"><span class="num">3</span><span class="letter">DEF</span></div>
+          <div class="num_1 fl"><span class="num">4</span><span class="letter">GHI</span></div>
+          <div class="num_1 fl"><span class="num">5</span><span class="letter">JKL</span></div>
+          <div class="num_1 fl"><span class="num">6</span><span class="letter">MNO</span></div>
+          <div class="num_1 fl"><span class="num">7</span><span class="letter">PQRS</span></div>
+          <div class="num_1 fl"><span class="num">8</span><span class="letter">TUV</span></div>
+          <div class="num_1 fl"><span class="num">9</span><span class="letter">XYZ</span></div>
+          <div class="num_1 fl"><span class="num">*</span><span class="letter"></span></div>
+          <div class="num_1 fl"><span class="num">0</span><span class="letter">+</span></div>
+          <div class="num_1 fl"><span class="num">#</span><span class="letter"></span></div>
+    	    </div>
+     	   <div class="callit fl">
+    	    </div>
+       
+       </div>
+       
+    	   <div class="dial_text fl">
+     		  <span class="t1" id="Description">费率说明</span>
+     	   <span class="t2" id="t1">可以将费率</span>
+     	   <span class="t3" id="t2">剩余分钟</span>
+     	   <span class="t3" id="t3">等等放在这个位置</span>
+     	   <br />
+     	   <span class="t2" id="t4">套餐</span>
+     	   <span class="t3" id="t5">也可以放在这里</span>
+     	   <span class="t3" id="t6">写大致的说明</span>
+      	  <span class="t3" id="t7">提供购买套餐链接</span>
+      	  <br />
+     	   <span class="t3" id="t8">或者查看我的账户</span>
+     	   <span class="t3" id="t9">等等说明性文字</span>
+       
+      	 </div>
+       </div>
+       
+       <div class="dial_item">
+        <div class="dial_bottom_head">Name</div>
+       	<div class="dail_list">
+         <div class="dial_item_content">
+           <div class="header_layout fl">
+            <div class="header"></div>
+            </div>
+            <div class="text_layout fl">
+           	  <!--<span class="num">13987654321</span>
+           	  <span class="name">张三</span>-->
+             </div>
+            </div>
+		   </div>
+           <div class="loading_bar"></div>
+          </div>
+       
+       </div>
+       <div class="loading">玩命加载中...</div>
+       </div>
+       
+
+      </div>
+
+     
+     <div id="link_notice" class="link_notice" style="display:none;">
+    	 <div class="left">
+     
+    	 </div>
+      <div class="right">
+       <div class="notification_panel">
+        <div class="notification_title">
+         <p id="Notifications">通知</p>
+        </div>
+        <div class="notification_list">
+         <div class="notification_item">
+          <div class="notification_icon"></div>
+          <div class="notification_more">
+           <div class="notification_text">已连接USB连接</div>
+           <div class="notification_time">17:32</div>
+           <div class="notification_close">X</div>
+           <div class="notification_desc">触摸可停用USB调试</div>
+          </div>
+          <div class='separator'></div>
+         </div>
+        </div>
+        <div class="notification_clear_all_panel">
+         <div class="clear_all needws">全部清除</div>
+        </div>
+       </div>
+       <div class="loading">玩命加载中...</div>
+       <div class="no_notification">没有通知</div>
+      </div>
+     </div>
+     
+     <div id="link_yang" class="link_yang">
+		<div class="link_yang_main">
+			<div class="yang_title">
+			</div>
+			<div class="yang_contact">
+				<div id="yang_loading"><img src="images/loading.svg" width="64" height="64"></div>
+				<div class="yang_left yang_insert">
+					<!-- <div class="yang_list">
+						<div class="one"></div>
+						<p>父母安康妻儿娇。三世同堂喜羊羊，家庭和睦幸福耀。愿你羊年身体康，满面羊光笑！</p>
+						<div class="forward">
+							<a href="javascript:;"></a>
+							<span>33</span>
+						</div>
+					</div>
+					<div class="yang_list">
+						<p>羊年到来开心笑，吉羊如意祥瑞照。事业如羊蓬勃起，工作似羊欢快跳。家庭美满羊光耀，父母安康妻儿娇。三世同堂喜羊羊，家庭和睦幸福耀。愿你羊年身体康，满面羊光笑！</p>
+						<div class="forward">
+							<a href="javascript:;"></a>
+							<span>33</span>
+						</div>
+					</div>
+					<div class="yang_list">
+						<p>羊年到来开心笑，吉羊同堂喜羊羊！</p>
+						<div class="forward">
+							<a href="javascript:;"></a>
+							<span>33</span>
+						</div>
+					</div>
+					<div class="yang_list">
+						<p>羊年到来开心笑，吉羊如意祥瑞照。事业如羊蓬勃起，工作似羊欢快跳。家庭美满羊光耀，父母安康妻儿娇。三世同堂喜羊羊，家庭和睦幸福耀。愿你羊年身体康，满面羊光笑！</p>
+						<div class="forward">
+							<a href="javascript:;"></a>
+							<span>33</span>
+						</div>
+					</div> -->
+				</div>
+				<div class="yang_right yang_insert">
+					<!-- <div class="yang_list">
+						<p>羊年到来开心笑，吉羊如意祥瑞照。事业如羊蓬勃起，工作似羊欢快跳。家庭美满羊光耀，父母安康妻儿娇。三世同堂喜羊羊，家庭和睦幸福耀。愿你羊年身体康，满面羊光笑！</p>
+						<div class="forward">
+							<a href="javascript:;"></a>
+							<span>33</span>
+						</div>
+					</div>
+					<div class="yang_list">
+						<p>羊年到来开心笑，吉羊如意祥瑞照。事业如羊蓬勃起，工作似羊欢快跳。家庭美满羊光耀，父母安康妻儿娇。三世同堂喜羊羊，家庭和睦幸福耀。愿你羊年身体康，满面羊光笑！</p>
+						<div class="forward">
+							<a href="javascript:;"></a>
+							<span>33</span>
+						</div>
+					</div>
+					<div class="yang_list">
+						<p>羊年到来开心笑，吉羊如意祥瑞照。事业如羊蓬勃起，工作似羊欢快跳。家庭美满羊光耀，父母安康妻儿娇。三世同堂喜羊羊，家庭和睦幸福耀。愿你羊年身体康，满面羊光笑！</p>
+						<div class="forward">
+							<a href="javascript:;"></a>
+							<span>33</span>
+						</div>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	 </div>
+     
+     <div id="connect_change_client" style="display:none;">
+						<span class="connect_change_text" id = "connect_change_client_tip1">已连接设备：<span id="connect_change_client_tip2" >K920</span></span> 
+				  </div>
+     
+    </div>
+   </div>
+  </div>
+  
+  
+
+
+<div class="footer">
+ <div class="error">
+  <div class="msg" id="bottom_connect_status">PC端与服务器已断开连接，请点击重连按钮重新连接</div>
+  <div class="button" style="display:none" id="reconnect">重连</div>
+  <div class="button_home" id="back_to_home">回主页</div>
+ </div>
+ <div class="bbs">
+  <div class="bbs_line"></div>
+  <a class="bbs_link" href="http://thelinkit.com:81" target="_blank">进入社区</a> </div>
+</div>
+
+
+</div>
+</div>
+<div class="panel" id='search_input_contact_panel'>
+ <div class="select" id='select_search_input_contact'> </div>
+</div>
+
+</div>
+<!--calling-->
+<div id="calling_b" class="calling_b" style="display:none;">
+ <div class="calling_top">
+ 	<div class="state">通话中</div>
+  <div class="state_info">
+  	<div class="name fl">张三</div>
+  	<div class="num fl">13987654321</div>
+  	<div class="time fr">00:35</div>
+ 	</div>
+  <div class="calling_func">
+  	<div class="mic_btn fl"></div>
+   <div class="dial_btn fl"></div>
+   <div class="hold_btn fl"></div>
+   <div class="new_btn fl"></div>
+  
+  </div>
+ 
+ </div>
+ 
+ <div class="calling_bottom">
+ 	<div class="header_big" id="header_big">
+  </div>
+ 
+ </div>
+ 
+ <div class="ringoff" ></div>
+ <div class="to_small"></div>
+ 
+ <div class="incoming" style="display:none;">
+ 	<div class="sms" title="挂断并发送短信"></div>
+    <div class="answer" title="接听"></div>
+    <div class="inoff" title="挂断"></div>
+    <div class="text"><span id="reading">接通后请使用手机进行通话</span></div>
+ </div>
+ 
+ 
+ 
+
+</div>
+
+<div id="calling_s" class="calling_s" style="display:none;">
+	<div class="name fl">张三</div>
+ <div class="ringoff fl"></div>
+ <div class="time fl">00:35</div>
+ <div class="to_big"></div>
+</div>
+<!--calling end-->
+
+<div id="tips_con" class="tips_con">
+	<div id="tips" class="tips">
+    	<div class="tips_logo"></div>
+        <div class="tips_text"><span>每次启动，</span><a>这里</a><span>可以显示出一句可以展示的话。</span></div>
+        <div class="tips_close"></div>
+    </div>
+</div>
+</body>
+</html>

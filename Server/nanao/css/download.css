@@ -1,0 +1,52 @@
+* {
+font-family:Microsoft YaHei;
+text-decoration:none;
+
+transition:font-size 0.3s ease-out;
+-moz-transition:font-size 0.3s ease-out; /* Firefox 4 */
+-webkit-transition:font-size 0.3s ease-out; /* Safari and Chrome */	
+-o-transition:font-size 0.3s ease-out;
+	
+transition:height 0.3s ease-out;
+-moz-transition:height 0.3s ease-out; /* Firefox 4 */
+-webkit-transition:height 0.3s ease-out; /* Safari and Chrome */
+-o-transition:height 0.3s ease-out;
+}
+
+#download { position: absolute; z-index: 2; width: 100%; height: 230px; top: 40px; display:none ; opacity: 0; filter:alpha(opacity:0); background: url(../images/cloud_bg.png) no-repeat center; }
+
+.line { width: 1px; height: 100%; background: url(../images/line.png) no-repeat; float: left; margin: 10px 6% 0 3%; }
+
+.download_content { max-width: 1200px; min-width:540px; margin: 0 auto; height: 230px; }
+
+
+
+.qrcode_frame { float: left; width: 110px; height: 180px; padding-top: 10px; margin-right:1%;  }
+
+#connect_qrcode { float: left; margin-left: 0px; width: 100px; height: 100px; }
+
+
+
+.url { float: left;  height: 180px;  margin-left:5px;  }
+
+
+
+.url_address { float: left; font-size: 14px; font-family: Microsoft yahei ui light, Microsoft yahei; color: #000; vertical-align: middle; margin-top: 17px; background:none;  display: block; min-width: 20%; max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+.download_btn { float: left; font-size: 18px; line-height: 40px; font-family: Microsoft YaHei ui light; background: #72aa48; text-align: center; margin-top: 20px; margin-left: 0px; color: #fff; cursor: pointer; width: 180px; height: 40px; 
+transition: all 0.4s; -moz-transition: all 0.4s; /* Firefox 4 */ -webkit-transition: all 0.4s; /* Safari and Chrome */ -o-transition: all 0.4s; }
+
+.download_btn:hover { background: #4e8a22; }
+
+
+.win_dl { float: left; width:40%; height: 180px;  margin-left: 2%; }
+
+.client { height:180px;width:80px; display:block; float:left; }
+
+.win_dl .client { margin-right: 5%; background:url(../images/home_icon.png) 0px -378px; }
+.android_dl .client { background:url(../images/home_icon.png) 0px -178px;  margin-right: 1%;}
+
+.win_text { float: left; margin-top: 15px; font-size: 18px; line-height:30px; font-family: Microsoft yahei ui light, Microsoft yahei; width:50%;}
+
+
+

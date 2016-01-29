@@ -1,0 +1,52 @@
+<html>
+<head>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+
+<style type="text/css">
+.news {
+  background-color: gray;
+  border: solid 1px black;
+  }
+
+.news img {
+  }
+
+.news p {
+  }
+  
+.title {
+	background-color: #ff00ff;
+	height: 100px;
+}
+  
+</style>
+
+<script type="text/javascript">
+var mouseX = 0;
+var mouseY = 0;
+
+$(function() {
+	$(document).mousemove(function (e) {
+		mouseX = e.pageX;
+		mouseY = e.pageY;
+	});
+});
+
+function getCursor(event) {
+alert(JSON.stringify(event));
+}
+
+</script>
+
+</head>
+
+<body>
+<div class="title"></div>
+<div class="news">
+<img src="news-pic.jpg" />
+<p>some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text some text </p>
+<div class="clear"></div>
+</div>
+
+</body>
+</html>

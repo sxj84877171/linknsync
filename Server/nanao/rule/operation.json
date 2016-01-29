@@ -1,0 +1,82 @@
+{
+    "rule": [
+        {
+            "apppkg": "com.netease.newsreader.activity",
+            "datas": [
+                {
+                    "keyid": "docid",
+                    "urlprev": "http://3g.163.com/ntes/special/0034073A/wechat_article.html?docid=ABCDEFGHIJK"
+                },
+                {
+                    "keyid": "specialId",
+                    "urlprev": "http://3g.163.com/ntes/special/00340EPA/wapSpecialModule.html?sid=ABCDEFGHIJK"
+                }
+            ],
+            "version": "1.0.1"
+        },
+        {
+            "apppkg": "com.tencent.news",
+            "datas": [
+                {
+                    "keyid": "pushserviceid",
+                    "urlprev": "http://view.inews.qq.com/a/ABCDEFGHIJK"
+                }
+            ],
+            "version": "4.7.2"
+        },
+        {
+            "apppkg": "com.ss.android.article.news",
+            "datas": [
+                {
+                    "keyid": "groupid",
+                    "urlprev": "http://toutiao.com/aABCDEFGHIJK"
+                }
+            ],
+            "version": "1.0"
+        },
+        {
+            "apppkg": "com.sina.news",
+            "datas": [
+                {
+                    "keyid": "link",
+                    "urlprev": ""
+                }
+            ],
+            "version": "1.0"
+        },
+        {
+            "apppkg": "com.ifeng.news2",
+            "datas": [
+                {
+                    "keyid": "extra.com.ifeng.news2.id",
+                    "urlprev": "http://i.ifeng.com/news/sharenews.f?aid=ABCDEFGHIJK"
+                },
+				{
+                    "keyid": "LR_ID",
+                    "urlprev": "http://i.ifeng.com/ifenglive?liveId=ABCDEFGHIJK"
+                }
+            ],
+            "version": "1.0"
+        },
+        {
+            "apppkg": "com.sohu.newsclient",
+            "datas": [
+                {
+                    "keyid": "urlLink",
+                    "urlprev": "http://3g.k.sohu.com/t/nABCDEFGHIJK"
+                }
+            ],
+            "version": "1.0"
+        },
+		{
+            "apppkg": "com.google.android.apps.genie.geniewidget",
+            "datas": [
+                {
+                    "keyid": "com.google.android.apps.genie.intent.extra.BREAKING_NEWS_URL",
+                    "urlprev": ""
+                }
+            ],
+            "version": "1.0"
+        }
+    ]
+}

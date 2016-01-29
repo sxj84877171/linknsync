@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+<meta property="qc:admins" content="502020277764054163146375" />
+<meta charset="UTF-8" />
+<title>LINKit - Start</title>
+<link type="text/css" rel="stylesheet" href="css/index.css" />
+<link type="text/css" rel="stylesheet" href="css/download.css" />
+<link rel="stylesheet" href="css/jquery.fullPage.css" type="text/css" />
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
+<script type="text/javascript" src="./js/jquery.qrcode.min.js"></script>
+<script type="text/javascript" src="./js/config.js" /></script>
+<script type="text/javascript" src="./language/lang_en.js" /></script>
+<script type="text/javascript">
+$(function(){
+	//var oTimer = null;
+	$('#scrollpage').fullpage({
+		navigation: true,
+		continuousVertical: true,
+		autoScrolling: true
+	});
+	/*oTimer = setInterval(function(){
+    	$.fn.fullpage.moveSectionDown();
+    }, 6000);
+	
+	$('.start').mouseover(function(){
+		clearInterval(oTimer);
+	});
+	$('.start').mouseout(function(){
+		oTimer = setInterval(function(){
+       		$.fn.fullpage.moveSectionDown();
+    }, 6000);
+	});*/
+});
+</script>
+<script type="text/javascript">
+$(function(){
+	var mouseX = 0;
+	var mouseY = 0;
+	var timeID = 0;
+	$(document).mousemove(function (e) {
+		mouseX = e.pageX;
+		mouseY = e.pageY;
+	});
+	
+	var language = navigator.browserLanguage ? navigator.browserLanguage : navigator.language;
+	
+	if(language.indexOf('zh') < 0)
+	{
+		var lang = LANG_EN;
+		$(".download_apk").text(lang.index.download_apk);
+		$(".intro_content").text(lang.index.intro_content);
+		$(".start_use").text(lang.index.start_use);
+		$(".qrcode_text").text(lang.index.qrcode_text);
+		$(".qrcode_text_bottom").text(lang.index.qrcode_text_bottom);
+		$(".download_text").text(lang.index.download_text);
+		$(".download_btn").text(lang.index.download_btn);
+		$(".url_text").text(lang.index.url_text);
+		$(".bbs_link").text(lang.index.bbs_link);
+	}
+	
+	////////////////////////////////////////////////////
+	$(".download_apk").attr("href", downloadUrl_android);
+	$(".down_android").attr("href", downloadUrl_android);
+	$(".down_windows").attr("href", downloadUrl_windows);
+	$(".url_address").text(downloadUrl_android);
+	$(".url_address").attr("title",downloadUrl_android);
+	$(".url_address").attr("href",downloadUrl_android);
+	var panel = $("#download");
+	$(".download_apk").mouseover(function() {
+		var btn = $(".download_apk");
+		if(!btn || !panel)
+			return;
+		
+		clearTimeout(timeID);
+		panel.show(100);  
+		panel.animate(
+		{
+    	  top:'60px',
+	 	 opacity:1.0
+		  },250);
+
+	});
+	
+	$(".download_apk").mouseout(function(e) {
+		clearTimeout(timeID);
+		timeID = setTimeout(function() {
+			var left = panel.offset().left;
+			var top = panel.offset().top;
+			var right = left + panel.width();
+			var bottom = top + panel.height();
+			
+			if(mouseX < left || mouseX > right || mouseY < top || mouseY > bottom)
+			panel.animate({top:'40px',opacity:'0',},200,function(){
+				panel.hide(300);  
+			}); 
+		}, 200);
+	});
+
+	$("#download").mouseleave(function(e) {
+		clearTimeout(timeID);
+		timeID = setTimeout(function() {
+			var obj = $(".download_apk");
+			var left = obj.offset().left;
+			var top = obj.offset().top;
+			var right = left + obj.width() + 20;
+			var bottom = top + obj.height() + 10;
+			
+			if(mouseX < left || mouseX > right || mouseY < top || mouseY > bottom)
+				panel.animate({top:'40px',opacity:'0',},200,function(){
+				panel.hide(300);  
+			}); 
+		}, 200);
+	});
+	
+	try{
+	$('#connect_qrcode').qrcode({ width: 100, height: 100, text: downloadUrl_android})
+    .children().css('margin', '10px');
+	}catch(err){
+		alert('Please use IE9+.');
+	}
+	
+});
+
+</script>
+</head>
+<body>
+<div id="home_header" class="home_header">
+	<div class="header_content">
+    	<div class="logo">
+		<img class="title_pic" src="./images/LINKit-logo.png"></p>
+		</div>
+	<div class="nav">
+        <a class="bbs_link" href="http://thelinkit.com:81" target="_blank">Forum</a>
+		<a class="download_apk" href="download.html" target="_blank">Download</a>
+	</div>
+        </div>
+</div>
+
+<div id="scrollpage" class="home_main">
+
+	<div class="section section1">
+     <div class="inner">
+     	<div class="banner_img">
+        	<img src="./images/home_banner_1.png" />
+        </div>
+        <div class="banner_text">
+       	 <div class="banner_text_1">
+        	<span class="txt1">SMS & call</span>
+            <span class="txt2">from your computer</span>
+       	 </div>
+       	 <div class="banner_text_2">Easy, convenient</div>
+         <div class="start"><a class="start_use" href="linkit.html">Start</a></div>
+        </div>
+     </div>
+    </div>
+    
+	<div class="section section2">
+     <div class="inner">
+    	 <div class="trait_2_text">
+       		 <div class="trait_text_1">
+        		<span>Messages</span>
+       		 </div>
+       		 <div class="trait_text_2">
+       		   <span class="txt1">Send and receive messages</span>
+      		   <span class="txt2">from your computer</span>
+               <div class="start"><a class="start_use" href="linkit.html">Start</a></div>
+       		 </div>
+        </div>
+     	<div class="img_t2">
+        	<img src="./images/home_sms.png" />
+        </div>
+     </div>
+    </div>
+    
+    <div class="section section3">
+     <div class="inner">
+    	 <div class="img_t3">
+        	<img src="./images/home_contact.png" />
+        </div>
+     	 <div class="trait_3_text">
+       		 <div class="trait_text_1">
+        		<span>Contact</span>
+       		 </div>
+       		 <div class="trait_text_2">
+       		   <span class="txt1">Check your contacts and</span>
+      		   <span class="txt2">recent activites</span>
+               <div class="start"><a class="start_use" href="linkit.html">Start</a></div>
+       		 </div>
+        </div>
+     	
+     </div>
+    </div>
+    
+    <div class="section section4">
+   	 <div class="inner">
+     	 <div class="trait_4_text">
+       		 <div class="trait_text_1">
+        		<span>Call</span>
+       		 </div>
+       		 <div class="trait_text_2">
+       		   <span class="txt1">Call your friends</span>
+      		   <span class="txt2">from your computer</span>
+               <div class="start"><a class="start_use" href="linkit.html">Start</a></div>
+       		 </div>
+        </div>
+     	<div class="img_t4">
+        	<img src="./images/home_call.png" />
+        </div>
+     
+     
+     
+</div>
+    </div>
+    
+    <div class="section section5">
+     <div class="inner">
+    	 <div class="img_t5">
+        	<img src="./images/home_notification.png" />
+        </div>
+     	 <div class="trait_5_text">
+       		 <div class="trait_text_1">
+        		<span>Notification</span>
+       		 </div>
+       		 <div class="trait_text_2">
+       		   <span class="txt1">Show all the notifications</span>
+      		   <span class="txt2">from your phone</span>
+               <div class="start"><a class="start_use" href="linkit.html">Start</a></div>
+       		 </div>
+        </div>
+     	
+        <div class="home_footer">
+	<div class="footer_text"><span>©联想公司版权所有,2015,本公司保留所有权利. © Copyright LENOVO,2015 | 沪ICP备xxxxxxxx号 | 京公网安备xxxxxxxxxxxx号</span></div>
+</div>
+        
+     </div> 
+    </div>
+    
+</div>
+
+
+
+
+
+
+
+
+<div id="download">
+
+	<div class="download_content" >
+    
+    
+    <div class="win_dl">
+        <div class="client"></div>
+        	<!--<div class="android_logo"></div>-->
+        <div class="win_dl_content">
+				
+				<div><a class="download_btn down_windows" href="" target="_blank">Download</a></div>
+                <div><p class="win_text">Windows 7/8.1/10</p></div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="android_dl">
+    
+    	<div class="client"></div>
+		<div class="qrcode_frame">
+			
+			<div id="connect_qrcode"><img src="./images/qr.png" style="display:none" /></div>
+		</div>
+
+        <div class="url">
+			<div><a class="download_btn down_android" href="" target="_blank">Download</a></div>
+			<div><p class="url_address" title="remind">http://thelinkit/LINKit.apk</a></div>
+            
+		</div>
+	</div>
+        
+        
+		
+	</div>	
+</div>
+
+
+
+</body>
+ 
+</html>

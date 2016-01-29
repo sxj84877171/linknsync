@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=no">
+		<title>想疯了——在PC上显示并处理您手机的短信和通知</title>
+		<link rel="stylesheet" href="m.css" />
+		<script type="text/javascript" src="m.js"></script>
+		<script type="text/javascript">
+			(function(){
+	//语言
+	//change_language();
+	var language = navigator.browserLanguage ? navigator.browserLanguage : navigator.language;
+	if(language.indexOf('zh') < 0)
+	{
+		window.location.href="../../m/";
+	}
+})();
+		</script>
+	</head>
+
+<body id="pg0">
+		<!--S header-->
+		<div id="top" class="top">
+    <div class="top_com">
+        <div class="logo"><img class="logo_l" src="images/m_logo_cn.png" /></div>
+    </div>
+</div>
+
+		<!--S figure-->
+		<div class="content">
+			<div class="lmtt">
+				<p class="txt1"><span class="txt_red">想疯了</span></p>
+				<p class="txt2">连接您的电脑，同步您的消息</p>
+				<a class="bndl" id="dl_phone_lynked"  href="#" target="_blank">立即下载</a>
+			</div>
+			
+			<div class="lm_notice">
+					<div class="ntcAnimate">
+						<img src="images/first_pc_1.png" />
+					</div>
+					<div class="txtwrap">
+						<p class="title1">通知，轻松查看</p>
+						<p class="txt1">手机有新通知，电脑立即显示</p>
+						<p class="txt1">是否需要拿起手机，轻松决定</p>
+						<ul class="figs ntc_figs">
+							<li class="line1">
+								<div class="li_img"><img src="images/04.png" /></div>
+								<div class="txt">
+									<p>智能识别系统常驻通知和应用通知</p>
+									<p>收藏、免打扰任您操作</p>
+								</div>
+							</li>
+							<li class="line2">
+								<div class="li_img"><img src="images/07.png" /></div>
+								<div class="txt">
+									<p>数据高度加密</p>
+									<p>安全传输，保护隐私</p>
+								</div>
+							</li>
+						</ul>
+				</div>
+			</div>
+			<div class="lm_sms">
+					<div class="smsAnimate">
+							<img src="images/second_pc_1.png" />
+					</div>
+					<div class="txtwrap">
+						<p class="title1">短信，不再错过</p>
+						<p class="txt1">无论您的手机在何处</p>
+						<p class="txt1">您都可以及时收到短信</p>
+						<ul class="figs ntc_figs">
+							<li class="line1">
+								<div class="li_img"><img src="images/01.png" /></div>
+								<div class="txt">
+									<p>查看、回复或收藏短信</p>
+									<p>号码免打扰功能</p>
+								</div>
+							</li>
+							<li class="line2">
+								<div class="li_img"><img src="images/07.png" /></div>
+								<div class="txt">
+									<p>数据高度加密</p>
+									<p>安全传输，保护隐私</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+			</div>
+
+			<div class="lm_findphone">
+					<div class="fdpAnimate">
+							<img src="images/third_bar_1.png" />
+					</div>
+					<div class="txtwrap">
+						<p class="title1">找手机功能</p>
+						<p class="txt1">手机忘了在哪里？</p>
+						<p class="txt1">很简单，点一下就OK</p>
+						<ul class="figs ntc_figs">
+							<li class="line1">
+								<div class="li_img"><img src="images/04.png" /></div>
+								<div class="txt">
+									<p>智能提高手机音量</p>
+									<p>找到手机后恢复手机音量设置</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+			</div>
+
+		</div>
+		<!--E figure-->
+		
+		<!--footer-->
+		<div id="footer" class="footer">
+	<div class="logo_footer_img"><img src="images/logo_footer.png" /></div>
+	<div class="logo_footer_txt">想疯了</div>
+</div>
+
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+
+		<script type="text/javascript" src="../../js/config.js" ></script>
+		<script type="text/javascript">
+		
+//Download URL
+$(function(){
+	function DownloadInformation()
+	{
+		//安卓端
+		this.oAndroidLynked = document.getElementById('dl_phone_lynked');
+	}
+	DownloadInformation.prototype.setUrl = function()
+	{
+		//安卓端
+		this.oAndroidLynked.href = android_lynked;
+	}
+var oDownloadInformation = new DownloadInformation();
+oDownloadInformation.setUrl();
+});
+		</script>
+	<!--weixin-->	
+		<script type="text/javascript">
+			function is_weixin() {
+			    var ua = navigator.userAgent.toLowerCase();
+			    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+			        return true;
+			    } else {
+			        return false;
+			    }
+			}
+			var isWeixin = is_weixin();
+			var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
+			function loadHtml(){
+				var div = document.createElement('div');
+				div.id = 'weixin-tip';
+				div.innerHTML = '<p><img src="images/live_weixin.png" alt="微信打开"/></p>';
+				document.body.appendChild(div);
+			}
+			
+			function loadStyleText(cssText) {
+		        var style = document.createElement('style');
+		        style.rel = 'stylesheet';
+		        style.type = 'text/css';
+		        try {
+		            style.appendChild(document.createTextNode(cssText));
+		        } catch (e) {
+		            style.styleSheet.cssText = cssText; //ie9以下
+		        }
+	            var head=document.getElementsByTagName("head")[0]; //head标签之间加上style样式
+	            head.appendChild(style); 
+		    }
+		    var cssText = "#weixin-tip{position: fixed; left:0; top:0; background: rgba(0,0,0,0.85); filter:alpha(opacity=80); width: 100%; height:100%; z-index: 100;}  #weixin-tip p{text-align: center; margin-top: 10%; width:90%; padding:0 5%;}    #weixin-tip p img{text-align: center; width:100%; margin-top: 10%; padding:0 5%;}";
+			if(isWeixin){
+				loadHtml();
+				loadStyleText(cssText);
+			}
+		</script>
+
+		
+	</body>
+
+</html>

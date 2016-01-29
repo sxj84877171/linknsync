@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+
+.bntxt .txt2 {
+	display: block;
+	clear: both;
+	text-align: left;
+	font-size: 40px;
+	line-height: 45px;
+	margin-top:10px;
+}
+.bntxt .txt2  .txt2_2 {
+	font-size: 40px;
+}
+.bntxt .txt3{
+	display: block;
+	clear: both;
+	text-align: left;
+	font-size: 61px;
+	line-height: 65px;
+}
+
+.logo_footer_img{
+	background: url(../images/logo_footer.png) no-repeat;
+	width: 35px;
+	height: 35px;
+	display: block;
+   z-index: 20;
+float: left;
+margin-top: 5px;
+margin-right: 5px;
+}
+
+.bntxt .dl_version {
+	float: right;
+	text-align: center;
+	display: block;
+	color: #d54b00;
+	font-size: 20px;
+	width: 81px;
+	height: 39px;
+	margin-right: 260px;
+	background: url(../images/dl_version_bg.png) no-repeat;
+	line-height: 35px;
+	padding-left: 3px;
+	text-shadow: none;
+}

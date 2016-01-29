@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="keywords" content="">
+		<meta name="description" itemprop="description" content="">
+		<meta itemprop="name" content="">
+		<meta name="description" itemprop="description" content="">
+		<link rel="shortcut icon" href="../images/favicon.ico" />
+		<title>想疯了 - FAQ</title>
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../css/main_cn.css" />
+		<link rel="stylesheet" href="../css/faq.css" />
+		<script type="text/javascript" src="../js/config.js" ></script>
+		
+		<script type="text/javascript">
+			var t0 = new Date();
+			var os = function() {
+					var ua = navigator.userAgent,
+						isWindowsPhone =/(?:Windows Phone)/.test(ua),
+						     isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone, 
+						     isAndroid = /(?:Android)/.test(ua), 
+						     isFireFox = /(?:Firefox)/.test(ua), 
+						     isChrome = /(?:Chrome|CriOS)/.test(ua),
+						     isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(ua)),
+						     isPhone = /(?:iPhone)/.test(ua) && !isTablet,
+						     isPc = !isPhone && !isAndroid && !isSymbian;
+						     return {
+						          isTablet: isTablet,
+						          isPhone: isPhone,
+						          isAndroid : isAndroid,
+						          isPc : isPc
+						     };
+						}();
+						var getSearch = function(name) {
+						    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+						    var r = window.location.search.substring(1).match(reg);
+						    if ( !! r) {
+						        return unescape(r[2]);
+						    }
+						    return null;
+						};
+						var searchstr = window.location.search,
+						    hashstr = window.location.hash;
+						var viewpc = getSearch("vpc");
+						if(!viewpc && (os.isAndroid || os.isPhone)){
+						location.replace('/m/');
+						}else if(os.isTablet){
+			location.replace('/m/'+searchstr+hashstr);
+						}
+						
+						(function(){
+				//语言
+				//change_language();
+				var language = navigator.browserLanguage ? navigator.browserLanguage : navigator.language;
+				if (language.indexOf('zh') < 0) {
+					window.location.href = "../faq.html";
+				}
+			})();
+		</script>
+	</head>
+
+	<body id="pg0"  <!--onresizeend="resize()"-->>
+		<!--S header-->
+		<div id="top" class="top">
+			<div class="top_com">
+				<div class="logo">
+					<h1>
+             <a href="index.html"><img class="logo_l" src="../images/logo_l.png" /><img class="logo_r" src="../images/logo_r.png" /></a>
+            </h1>
+				</div>
+				<ul>
+					
+					<li><a href="http://thelinkit.com:81" target="_blank">官方论坛</a></li>
+					<li><a href="faq.html" class="top_nav_sel">FAQ</a></li>
+					<li><a href="timeline.html" id="update_log">更新日志</a></li>
+					<li><a href="#" target="_blank" id="dl_phone_lynked">下载手机版</a></li>
+					<li><a href="index.html"  id="home_page">首页</a></li>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--E header-->
+
+		<div id="tbox">
+			<img id="gotop" src="images/gotop.png">
+		</div>
+
+		<div class="faq-main" id="faq-main">
+
+			<div class="faq-header">
+				<h2 class="faq-header-title">
+			<span class="faq-header-title-word">FAQ</span>
+			</h2>
+			</div>
+			<div id="faq_page">
+				<div class="page1" style="display: block;">
+					<div class="question_item ">
+						<h3 class="question"><span>Q: </span>怎么使用想疯了?</h3>
+						<div class="answer">
+							<!--<p class="answer-a">A:</p>-->
+							<p>1. 您需要在电脑和手机上同时安装想疯了客户端。</p>
+							<p>2. 在电脑端打开，并使用手机端扫码连接。</p>
+							<p>3. 连接成功后即可使用。</p>
+						</div>
+					</div>
+					<div class="question_item ">
+						<h3 class="question"><span>Q: </span>想疯了可以做什么?</h3>
+						<div class="answer">
+							<!--<p class="answer-a">A:</p>-->
+							<p>1. 想疯了可以连接手机和电脑。</p>
+							<p>2. 电脑上可以智能接收手机短信和通知。</p>
+							<p>3. 电脑上可以回复短信。</p>
+							<p>4. 电脑上可以查看手机的网络、电量等信息。</p>
+							<p>5. 电脑上点击找手机，可以快速找到手机。</p>
+							<p>6. 电脑上可以直接打开手机收到的新闻，支持网易新闻、搜狐新闻等。</p>
+						</div>
+					</div>
+					<div class="question_item ">
+						
+						<h3 class="question"><span>Q: </span>二维码应该如何扫描?</h3>
+						<div class="answer">
+							<!--<p class="answer-a">A:</p>-->
+							<p>打开想疯了手机端，点击“连接电脑”，即可扫描。</p>
+						</div>
+					</div>
+					<div class="question_item ">
+						<h3 class="question"><span>Q: </span>手机和电脑需要使用同一个网络吗?</h3>
+						<div class="answer">
+							<!--<p class="answer-a">A:</p>-->
+							<p>不需要，手机和电脑可以使用任意网络，只要能上网，就能连接。</p>
+						</div>
+					</div>
+				
+					
+					<br class="clear">
+				</div>
+
+			</div>
+		</div>
+		<br class="clear">
+		<!--footer-->
+		<div id="footer" class="footer">
+			<div class="logo_footer_txt">
+				<div class="logo_footer_img"></div>想疯了
+			</div>
+
+		</div>
+		
+		
+	</body>
+<script type="text/javascript" src="../js/jquery.min.js" ></script>
+
+		<script type="text/javascript">
+		 //Download URL
+			$(function() {
+				function DownloadInformation() {
+					//安卓端
+					this.oAndroidLynked = document.getElementById('dl_phone_lynked');
+				}
+				DownloadInformation.prototype.setUrl = function() {
+						//安卓端
+						this.oAndroidLynked.href = android_lynked;
+
+					}
+					//	DownloadInformation.prototype.setVersionInformation = function()
+					//	{
+					//		
+					//	}
+				var oDownloadInformation = new DownloadInformation();
+				//	oDownloadInformation.setVersionInformation();
+				oDownloadInformation.setUrl();
+			});
+		</script>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="keywords" content="">
+		<meta name="description" itemprop="description" content="">
+		<meta itemprop="name" content="">
+		<meta name="description" itemprop="description" content="">
+		<link rel="shortcut icon" href="../images/favicon.ico" />
+		<title>想疯了——在PC上显示并处理您手机的短信和通知</title>
+		<link rel="stylesheet" href="../css/main.css" />
+		<link rel="stylesheet" href="../css/main_cn.css" />
+		<link rel="stylesheet" href="../css/animation.css" />
+
+		<script type="text/javascript">
+			var t0 = new Date();
+			var os = function() {
+				var ua = navigator.userAgent,
+					isWindowsPhone = /(?:Windows Phone)/.test(ua),
+					isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
+					isAndroid = /(?:Android)/.test(ua),
+					isFireFox = /(?:Firefox)/.test(ua),
+					isChrome = /(?:Chrome|CriOS)/.test(ua),
+					isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(ua)),
+					isPhone = /(?:iPhone)/.test(ua) && !isTablet,
+					isPc = !isPhone && !isAndroid && !isSymbian;
+				return {
+					isTablet: isTablet,
+					isPhone: isPhone,
+					isAndroid: isAndroid,
+					isPc: isPc
+				};
+			}();
+			var getSearch = function(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				var r = window.location.search.substring(1).match(reg);
+				if (!!r) {
+					return unescape(r[2]);
+				}
+				return null;
+			};
+			var searchstr = window.location.search,
+				hashstr = window.location.hash;
+			var viewpc = getSearch("vpc");
+			if (!viewpc && (os.isAndroid || os.isPhone)) {
+				location.replace('/cn/m/');
+			} else if (os.isTablet) {
+				location.replace('/cn/m/' + searchstr + hashstr);
+			}
+			(function() {
+				//语言
+				//change_language();
+				var language = navigator.browserLanguage ? navigator.browserLanguage : navigator.language;
+				if (language.indexOf('zh') < 0) {
+					window.location.href = "../index.html";
+				}
+			})();
+		</script>
+	</head>
+
+	<body id="pg0">
+		<!--S header-->
+		<div id="top" class="top">
+			<div class="top_com">
+				<div class="logo">
+					<h1>
+                <a href="index.html"><img class="logo_l" src="../images/logo_l.png" /><img class="logo_r" src="../images/logo_r.png" /></a>
+            </h1>
+				</div>
+				<ul>
+					<li><a href="http://thelinkit.com:81" target="_blank">官方论坛</a></li>
+					<li><a href="faq.html" >FAQ</a></li>
+					<li><a href="timeline.html" id="update_log">更新日志</a></li>
+					<li><a href="#" target="_blank" id="dl_phone_lynked">下载手机版</a></li>
+					<li><a href="index.html" class="top_nav_sel" id="home_page">首页</a></li>
+
+				</ul>
+			</div>
+		</div>
+
+		<!--E header-->
+
+		<!--S banner-->
+		<div class="crossbanenr">
+
+			<ul id="crossbanenr">
+				<li class="bn1" style="display: list-item;">
+					<div class="bncont">
+
+						<!--<video class="linknsync-video" controls="controls" autoplay="autoplay" loop="loop" style="visibility: visible;">
+            <source src="../video/LinknSYNC-en-720p-music-60s.mp4" type="video/mp4"  ><source src="../video/S4_1.webm" type="video/webm" ></video>-->
+						<div class="bntxt">
+							<p class="txt1">想疯了<span class="dl_version">V 1.3</span></p>
+							<p class="txt2"><span class="txt2_2"></span>在PC上</p>
+							<p class="txt3">显示并处理</p>
+							<p class="txt4">您手机的短信和通知</p>
+							<a class="bndl" id="home_dl_win_lynked" href="#" target="_blank">立即下载</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+		<!--E banner-->
+
+		<!--S figure-->
+		<div class="content">
+			<div class="lmtt">
+				<p class="txt1"><span class="txt_red">想疯了</span></p>
+				<p class="txt2">连接您的手机，同步您的消息</p>
+			</div>
+
+			<div id="fisrtbg" class="activebg fisrtbg" data-stellar-background-ratio="0.4"></div>
+			<div class="lmmod lm_notice">
+				<div class="lm960">
+					<div class="txtwrap">
+						<p class="title1">通知，轻松查看</p>
+						<p class="txt1">手机有新通知，电脑立即显示</p>
+						<p class="txt1">是否需要拿起手机，轻松决定</p>
+						<ul class="figs ntc_figs">
+							<li class="line1">
+								<div class="li_img"><img src="../images/04.png" /></div>
+								<div class="txt">
+									<p>智能识别系统常驻通知和应用通知</p>
+									<p>收藏、免打扰任您操作</p>
+								</div>
+							</li>
+							<li class="line2">
+								<div class="li_img"><img src="../images/07.png" /></div>
+								<div class="txt">
+									<p>数据高度加密</p>
+									<p>安全传输，保护隐私</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="ntcAnimate">
+						<div class="ntcWrap">
+							<div class="ntcbtn"></div>
+							<div class="pic1"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="secondbg" class="activebg secondbg" data-stellar-background-ratio="0.4"></div>
+			<div class="lmmod lm_sms">
+				<div class="lm960">
+					<div class="txtwrap">
+						<p class="title1">短信，不再错过</p>
+						<p class="txt1">无论您的手机在何处</p>
+						<p class="txt1">您都可以及时收到短信</p>
+						<ul class="figs ntc_figs">
+							<li class="line1">
+								<div class="li_img"><img src="../images/01.png" /></div>
+								<div class="txt">
+									<p>查看、回复或收藏短信</p>
+									<p>号码免打扰功能</p>
+								</div>
+							</li>
+							<li class="line2">
+								<div class="li_img"><img src="../images/07.png" /></div>
+								<div class="txt">
+									<p>数据高度加密</p>
+									<p>安全传输，保护隐私</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="smsAnimate">
+						<div class="smsWrap">
+							<div class="pic1"></div>
+							<div class="pic2"></div>
+							<div class="pic3"></div>
+							<div class="bar"></div>
+							<div class="click"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="thirdbg" class="activebg thirdbg" data-stellar-background-ratio="0.4"></div>
+			<div class="lmmod lm_findphone">
+				<div class="lm960">
+					<div class="txtwrap">
+						<p class="title1">找手机功能</p>
+						<p class="txt1">手机忘了在哪里？</p>
+						<p class="txt1">很简单，点一下就OK</p>
+						<ul class="figs ntc_figs">
+							<li class="line1">
+								<div class="li_img"><img src="../images/04.png" /></div>
+								<div class="txt">
+									<p>智能提高手机音量</p>
+									<p>找到手机后恢复手机音量设置</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="fdpAnimate">
+						<div class="fdpWrap">
+							<div class="pic1"></div>
+							<div class="pic2"></div>
+							<div class="pic3"></div>
+							<div class="pic4"></div>
+							<div class="pic5"></div>
+							<div class="bar"></div>
+							<div class="click"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!--E figure-->
+
+		<!--footer-->
+		<div id="footer" class="footer">
+			<div class="logo_footer_txt">
+				<div class="logo_footer_img"></div>想疯了
+			</div>
+
+		</div>
+
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/stellar.js"></script>
+		<script type="text/javascript" src="../js/config.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$.stellar({
+					horizontalScrolling: false,
+					horizontalOffset: 40,
+					verticalOffset: 40
+				});
+				var mod = $(".lmmod");
+				var $body = $("body");
+				var dataArr = [];
+				$(mod).each(function(i, item) {
+					if (i === 0) {
+						dataArr[i] = $(item).offset().top - Math.floor($(item).height() / 2) - 500
+					} else {
+						dataArr[i] = $(item).offset().top - Math.floor($(item).height() / 2)
+					}
+				});
+				var winHeight = $(window).height();
+				var bodyheight = $body.height();
+				$(".crossbanenr").animate({
+					height: (winHeight - 150) > 540 ? (winHeight - 150) : 540
+				}, 100, function() {});
+				$(window).resize(function() {
+					winHeight = $(window).height();
+					bodyheight = $body.height();
+					$(".crossbanenr").animate({
+						height: (winHeight - 150) > 540 ? (winHeight - 150) : 540
+					}, 100, function() {})
+				});
+				var isIE = !!window.ActiveXObject;
+				var scrollTop = $(window).scrollTop();
+				var clientHeight = $(window).height();
+				var contentHeight = 584;
+				var barHeight = 600;
+				var firstHeight = 778;
+				var topHeight = 321;
+				var thirdScroll = clientHeight < (topHeight + firstHeight) ? contentHeight : (contentHeight - clientHeight + topHeight + firstHeight);
+				var fourthScroll = thirdScroll + contentHeight + barHeight;
+				var fifthScroll = fourthScroll + contentHeight + barHeight;
+				var sixthScroll = fifthScroll + contentHeight + barHeight;
+				var changeH = (firstHeight + topHeight - clientHeight) / 2;
+				var st = new Date().getTime();
+				$(window).scroll(function(e) {
+					scrollTop = $(window).scrollTop();
+					if (scrollTop >= firstHeight) {
+						$("#top").addClass("topicfixed")
+					} else {
+						if ($("#top").hasClass("topicfixed")) {
+							$("#top").removeClass("topicfixed")
+						}
+					} if (scrollTop < 100) {
+						$body.attr("id", "pg0")
+					}
+					$(dataArr).each(function(i, item) {
+						if (Math.floor(winHeight / 2) + scrollTop >= item) {
+							$body.attr("id", "pg" + (i + 1))
+						}
+					});
+					if (scrollTop + winHeight >= bodyheight) {
+						$body.attr("id", "pg3")
+					}
+				})
+			});
+			 //Download URL
+			$(function() {
+				function DownloadInformation() {
+					//安卓端
+					this.oAndroidLynked = document.getElementById('dl_phone_lynked');
+					//PC端
+					this.oWinLynked = document.getElementById('home_dl_win_lynked');
+				}
+				DownloadInformation.prototype.setUrl = function() {
+						//安卓端
+						this.oAndroidLynked.href = android_lynked;
+						//PC端
+						this.oWinLynked.href = win_lynked;
+					}
+					//	DownloadInformation.prototype.setVersionInformation = function()
+					//	{
+					//		
+					//	}
+				var oDownloadInformation = new DownloadInformation();
+				//	oDownloadInformation.setVersionInformation();
+				oDownloadInformation.setUrl();
+			});
+		</script>
+
+	</body>
+
+</html>

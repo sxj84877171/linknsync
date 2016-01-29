@@ -1,0 +1,84 @@
+﻿<html>
+  <head>
+    <title>Hello Client Monkey 6</title>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+      <script type="text/javascript"
+              src="//static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
+      <link href="http://static0.twilio.com/packages/quickstart/client.css"
+            type="text/css" rel="stylesheet" />
+    <script type="text/javascript">
+
+        var clientName = "jerry";
+        var twilioAuth = "http://114.215.236.240/_twilio_auth?name=" + clientName;
+        var token = null;
+        $.get(twilioAuth, function(result){
+            token = result;
+
+            if(token){
+                Twilio.Device.setup(token, {debug: true});
+                Twilio.Device.ready(function (device) {
+                    $("#log").text("Client is ready");
+                });
+
+                Twilio.Device.error(function (error) {
+                    $("#log").text("Error: " + error.message);
+                });
+
+                Twilio.Device.connect(function (conn) {
+                    $("#log").text("Successfully established call");
+                });
+
+                Twilio.Device.disconnect(function (conn) {
+                    $("#log").text("Call ended");
+                });
+
+                Twilio.Device.incoming(function (conn) {
+                    $("#log").text("Incoming connection from " + conn.parameters.From);
+                    // accept the incoming connection and start two-way audio
+                    conn.accept();
+                });
+
+                Twilio.Device.presence(function (pres) {
+                    if (pres.available) {
+                        // create an item for the client that became available
+                        $("<li>", { id: pres.from, text: pres.from }).click(function () {
+                            $("#number").val(pres.from);
+                            call();
+                        }).prependTo("#people");
+                    }
+                    else {
+                        // find the item by client name and remove it
+                        $("#" + pres.from).remove();
+                    }
+                });
+            }
+        })
+
+        function call() {
+            // get the phone number or client to connect the call to
+            params = { "PhoneNumber": $("#number").val(),"From":"13430721849"};
+            Twilio.Device.connect(params);
+        }
+
+        function hangup() {
+            Twilio.Device.disconnectAll();
+        }
+    </script>
+  </head>
+  <body>
+    <button class="call" onclick="call();">
+      Call
+    </button>
+ 
+    <button class="hangup" onclick="hangup();">
+      Hangup
+    </button>
+ 
+    <input type="text" id="number" name="number"
+      placeholder="Enter a phone number or client to call"/>
+ 
+    <div id="log">Loading pigeons...</div>
+ 
+    <ul id="people"/>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+     >
+
+    <ProgressBar
+        android:id="@+id/pb_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="18dp"
+        android:indeterminate="false"
+        android:indeterminateDrawable="@drawable/com_lenovo_lsf_loading_style_pb_big" />
+
+    <TextView
+        android:id="@+id/loading_bar_msg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pb_loading"
+        android:gravity="center_horizontal"
+        android:text="111111111"
+        android:textColor="#191919"
+        android:paddingBottom="28dp"
+        android:textSize="18sp" />
+
+</RelativeLayout>

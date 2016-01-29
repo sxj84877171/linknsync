@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/notification_setting"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_alert" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerInParent="true"
+        android:background="@color/white" >
+
+        <ImageView
+            android:id="@+id/message_below_image"
+            android:layout_width="314dp"
+            android:layout_height="188dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/guide2_mid_notice" />
+
+        <TextView
+            android:id="@+id/message_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/message_below_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="@string/setting_notification_service_message"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/button_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/message_header"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/openNotification"
+                android:layout_width="170dp"
+                android:layout_height="38dp"
+                android:background="@color/notification_open_color"
+                android:text="@string/setting_notification_service_set"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/ignore"
+                android:layout_width="170dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/notification_cancel_color"
+                android:text="@string/setting_notification_service_cancel"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="25dp"
+            android:textSize="12sp"
+            android:text="@string/setting_notification_service_open"
+            android:textColor="@color/notification_hit_color" />
+    </RelativeLayout>
+
+</RelativeLayout>

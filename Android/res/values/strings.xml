@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LINKit</string>
+    <string name="generate_notification">Generate Notification</string>
+    <string name="start_service">Start Service</string>
+    <string name="notification_daemon">Notification Daemon</string>
+    <string name="notification_icon">Notification Icon</string>
+    <string name="send">Send</string>
+    <string name="imageview_contentdescription_app_poster">App Poster</string>
+    <string name="imageview_contentdescription_gray_stroke">Gray Stroke</string>
+    <string name="did_connect_to">已连接到</string>
+    <string name="disconnect">断开</string>
+    <string name="website_promotion">在电脑上打开浏览器，输入以下地址可以使用：\nhttp://www.%s</string>
+    <string name="website_url">115.29.178.5</string>
+    <string name="dev_website_url">114.215.236.240</string>
+    <string name="capture_description">将摄像头对准二维码即可自动扫描</string>
+    <string name="scan_tips">将二维码图片对准扫描框即可自动扫描</string>
+    <string name="about">关于</string>
+    <string name="about_message">Linkit (alpha build 0519) \nVersion:%s</string>
+    <string name="ok">好的</string>
+    <string name="exit">退出</string>
+    <string name="update">更新</string>
+    <string name="lenovoID">LenovoID</string>
+    <string name="developer">开发者模式</string>
+    <string name="developer_open">开发者模式开启</string>
+    <string name="developer_close">开发者模式关闭</string>
+    <string name="log">日志</string>
+    <string name="notification_setting">通知</string>
+    <string name="s_update_version_match">没有新版本</string>
+    <string name="s_update_get_server_information_failed">获取服务器更新信息失败</string>
+    <string name="s_update_sd_card_unavailable">SD卡不可用</string>
+    <string name="s_update_download_failed">下载新版本失败</string>
+    <string name="s_update_title">版本升级</string>
+    <string name="s_update_download">正在下载更新</string>
+    <string name="url_server">http://192.168.1.100/examples/update.xml</string>
+    <string name="s_smart_mention">提示</string>
+    <string name="s_smart_confirm">确定</string>
+    <string name="s_smart_cancel">取消</string>
+    <string name="message_title">消息</string>
+    <string name="contact_title">通讯录</string>
+    <string name="call_title">通话</string>
+    <string name="s_wifi_disconnect">WIFI已断开</string>
+    <string name="s_wifi_connect">WIFI已连接</string>
+    <string name="wifi_state_disconnected">无网络，请检查你的网络连接</string>
+    <string name="state_ws_disconnected">未连接</string>
+    <string name="state_network_disconnected">未连接(网络已断开)</string>
+    <string name="savepassword">保存用户名和密码.</string>
+    <string name="autologin">下次自动登录.</string>
+    <string name="state_ws_connecting">正在连接..</string>
+    <string name="state_ws_reconnecting">正在重连..</string>
+    <string name="state_pairing">正在连接...</string>
+    <string name="state_get_phone_info">正在获取手机信息</string>
+    <string name="state_send_all_contacts">正在同步联系人目录</string>
+    <string name="state_send_all_sms">正在同步..</string>
+    <string name="state_send_all_notification">正在同步...</string>
+    <string name="state_synchronized">已同步</string>
+    <string name="state_finished">已连接</string>
+    <string name="state_pc_disconnect">PC已断开</string>
+    <string name="state_send_sms_info_to_pc">正在同步短信</string>
+    <string name="state_send_notification_info_to_pc">正在同步通知</string>
+    <string name="state_phone_disconnect">网页已断开</string>
+    <string name="state_get_all_contacts_fail">获取手机联系人失败</string>
+    <string name="state_get_all_sms_fail">获取手机短信失败</string>
+    <string name="state_get_all_notification_fail">获取手机通知失败</string>
+    <string name="state_get_phone_info_fail">获取手机信息失败</string>
+    <string name="scan_qrcode_connect">连接电脑</string>
+    <string name="scan_qrcode_disconnect">断开电脑</string>
+    <string name="setting_notification_service_title">设置通知获取权限</string>
+    <string name="setting_notification_service_message">LINKit支持在本机上显示本机所有通知！\n请点击“开启通知”打开该服务</string>
+    <string name="setting_notification_service_cancel">以后再说</string>
+    <string name="setting_notification_service_set">开启通知</string>
+    <string name="main_heaer_title">用电脑收发短信</string>
+    <string name="setting_notification_service_open">您也可以在LINKit设置中打开该服务</string>
+    <string name="sms_loading_title">LINKit无缝连接电脑\n轻松收发消息</string>
+    <string name="contact_loading_title">查看联系人\n方便查看最近活动</string>
+    <string name="call_loading_title">电脑直接拨打电话\n高清音质流畅通话</string>
+    
+    <string name="username">用户名：</string>
+    <string name="username_hint">请输入用户名</string>
+    <string name="password">密码：</string>
+    <string name="password_hint">请输入密码</string>
+    <string name="login_facebook">登录Facebook</string>
+    <string name="logout_facebook">退出Facebook</string>
+    
+    <string name="lenovoid_confict_title">登录提示</string>
+    <string name="lenovoid_confict_message">您在另外一台android设备已登录此账号，该设备已下线</string>
+    <string name="lenovoid_confict_ok">确定</string>
+    
+    <string name="login">登录</string>
+    <string name="logout">账号管理</string>
+    <string name="cancel">取消</string>
+
+    <string-array name="log_level">
+        <item>VERBOSE</item>
+        <item>DEBUG</item>
+        <item>INFO</item>
+        <item>WARN</item>
+        <item>ERROR</item>
+        <item>SUCCESS</item>
+    </string-array>
+    <string-array name="log_file">
+        <item>Activity</item>
+        <item>Service</item>
+        <item>NoService</item>
+    </string-array>
+
+</resources>

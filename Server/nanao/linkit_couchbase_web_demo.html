@@ -1,0 +1,113 @@
+<html>
+<head>
+<meta  charset="UTF-8" />
+<title>LINKit - Couchbase - Demo</title>
+<script type="text/javascript" src="./js/jquery.min.js" /></script>
+<script type="text/javascript" src="./js/jquery.qrcode.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	var couchbase = $("#couchbase");
+	couchbase.append("<li id=\"item4\">test4</li>");
+	couchbase.children().remove();
+	
+	//var url = "http://114.215.236.240:4984/sync_gateway/_all_docs";
+	/*var url_docs = "http://127.0.0.1/_all_docs";
+	var url_doc = "http://127.0.0.1/_doc?id=";
+	$.get(url_docs, function(result) {
+		var jsonResult = JSON.parse(result);
+		console.log(jsonResult.total_rows);
+		console.log(jsonResult.rows);
+		
+		var rows = jsonResult.rows;
+		for(var row in rows) {
+			var data = rows[row];
+			console.log(data);
+			
+			$.get(url_doc + data.id, function(record) {
+				console.log(record);
+				
+				var rcd = JSON.parse(record);
+				couchbase.append("<li id='" + rcd._id + "'>" + rcd.text + "</li>");
+			});			
+		}
+	});*/
+
+	var last_seq = 0;
+	var url_doc = "http://114.215.236.240/_doc?id=";
+	function dataChangeNotify(){
+		var url_changes = "http://114.215.236.240/_changes?since=" + last_seq;
+		$.get(url_changes, function(result){
+			var jsonResult = JSON.parse(result);
+			last_seq = jsonResult.last_seq;
+			var changes = jsonResult.results;
+			for(var row in changes) {
+				var data = changes[row];
+				console.log(data);
+				if(data.changes.length == 0){
+					continue;
+				}
+				if(data.deleted){
+					$('#'+data.id).remove();
+					continue;
+				}
+
+				$.get(url_doc + data.id, function(record) {
+					console.log(record);
+
+					var rcd = JSON.parse(record);
+					var item = $('#'+rcd._id);
+					if(item.length == 0){
+						item = $("<li id='" + rcd._id + "'>" + "<input type='checkbox'/>" + rcd.text + "</li>");
+						couchbase.append(item);
+					}
+					item.find('input').attr('checked',rcd.check);
+				});
+			}
+			setTimeout(dataChangeNotify, 1000);
+		});
+
+	};
+
+	dataChangeNotify();
+	/*$.ajax({
+		type: "get",
+		username: "GUEST",
+		crossDomain : true,
+		//dataType: 'jsonp', 
+		//contentType: "application/json",
+		url: url,
+		success: function(result) {
+			console.log("success: ");
+			console.log(result);
+			
+			var jsonResult = eval('(' + result + ')');
+			console.log(jsonResult.total_rows);
+			console.log(jsonResult.rows);
+			var rows = jsonResult.rows;
+			for(var row in rows) {
+				var data = rows[row];
+				console.log(data);
+				
+			}
+			
+		},
+		error: function(e) {
+			console.log("error: ");
+			console.log(e);
+		},
+	});*/
+});
+</script>
+</head>
+
+<body>
+<ul id="couchbase">
+	<li id="item1">test1</li>
+	<li id="item2">test2</li>
+	<li id="item3">test3</li>
+</ul>
+
+</div>
+</body>
+
+</html>

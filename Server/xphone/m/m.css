@@ -1,0 +1,358 @@
+html,
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+	margin: 0 auto;
+	padding: 0;
+	font-family: "Segoe UI", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI Light", "Microsoft YaHei", STXihei, STHeiti, Heiti, SimSun, sans-serif;
+	font-size: 10px;
+	letter-spacing:0em;
+}
+html,
+body {
+	width: 100%;
+	height: 100%;
+	max-width: 48em;
+	color: #333
+}
+body {
+	background: #fff;
+}
+ul,
+ol,
+li {
+	list-style: none;
+}
+a:link,
+a:visited {
+	color: #333;
+	text-decoration: none;
+}
+a:hover {
+	color: #12b7f5;
+}
+img {
+	border: none;
+}
+
+h1,
+h2,
+h3 {
+	margin: 0;
+	padding: 0;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-weight:normal;
+}
+
+#gotop {
+    width: 5.4em;
+    height: 5.4em;
+    border-radius: 27px;
+    display: none;
+    box-shadow: 0px 0px 4px #A0A0A0;
+}
+#gotop:hover{
+    box-shadow: 0px 0px 16px #A0A0A0;
+}
+#gotop {
+    background-position: 0 0px;
+    cursor: pointer;
+}
+/* top */
+
+.top {
+	width: 100%;
+	height: auto;
+	padding: 0.8em 0;
+	background: #eee;
+	filter: alpha(opacity: 80);
+	opacity: 0.8;
+	z-index: 400;
+}
+.top .top_com {
+	width: 100%;
+/*	height: 6em;*/
+	margin: 0 auto;
+	position: relative;
+}
+.top .logo {
+	width: 40%;
+	margin: auto auto;
+}
+.top .logo img {width: 100%;}
+
+
+.lmtt .bndl {
+
+	display: block;
+	width: 70%;
+	height: 2.2em;
+	overflow: hidden;
+	margin: 1em auto ;
+	background-color: #15baf8;
+	text-align: center;
+	color: #fff;
+	line-height: 2.2em;
+	font-size: 2em;
+	text-shadow: none;
+	border-radius: 3em;
+	-webkit-border-radius: 3em;
+	-moz-border-radius: 3em;
+}
+.lmtt .bndl:hover{
+	background-color: #0fa8e1;
+}
+.lmtt .bndl:active{
+	background-color: #0fv6c1;
+}
+/*link master title*/
+.lmtt {
+	width: 100%;
+	height: 40em;
+	background: #fff;
+	display: block;
+	clear: both;
+	z-index: 10;
+	position: relative;
+	
+}
+.lmtt p{
+	width: 100%;
+	
+	text-align: center;
+	font-family: "Segoe UI", "microsoft yahei light", "microsoft yahei";
+}
+.lmtt .txt1{
+	font-size: 3.6em;
+	color:#007bed ;
+	padding-top: 3em;
+	font-family: "Segoe UI", "microsoft yahei light", "microsoft yahei";
+}
+.lmtt .txt1 .txt_red{
+	color:#f74a28 ;
+}
+
+.txt_color_1{
+
+	color:#333 ;
+}
+.txt_color_2{
+	color:#666 ;
+}
+.txt_color_3{
+	color:#f74a28 ;
+}
+ .txt_color_4{
+	color:#66cf10 ;
+}
+.txt_color_5{
+	color:#f0af00 ;
+}
+ .txt_color_6{
+	color:#444444 ;
+}
+.lmtt .txt2{
+	font-size: 1.4em;
+	color:#666 ;
+}
+.lmtt .txt2  .txt2_2{
+	font-family:  "Segoe UI", "microsoft yahei";
+	color:#666 ;
+}
+
+.lm_notice,  
+.lm_sms, 
+.lm_findphone {
+	width: 100%;
+/*	height: 50em;*/
+	background: #fff;
+	display: block;
+}
+.lm_notice{background: #dffdff; height: 58em;}
+.lm_sms{background: #eaffdf; height: 50em;}
+.lm_findphone {background: #fff3df; height: 40em;}
+.lm960 {
+  padding-top: 3em;
+	/*width: 100%;
+	height: 50em;
+	margin: 0 auto;*/
+	margin-bottom: 3em;
+}
+
+.lm_notice .txtwrap {
+
+	width: 100%;
+	z-index: 20;
+}
+
+.lm_notice p {
+	width: 100%;
+	text-align: center;
+	font-family: "Segoe UI Light", "Segoe UI", "microsoft yahei light", "microsoft yahei";	
+}
+.lm_notice .txtwrap .title1{
+	font-size: 2.4em;
+	color:#333 ;
+	margin-bottom: 0.2em;
+}
+
+.lm_notice .txtwrap .txt1{
+	font-size: 1.5em;
+	color:#333 ;
+	padding-top: 0px;
+	
+}
+
+.figs {
+	margin: 0 auto;
+	padding-top: 1em;
+	min-height: 7em;
+}
+
+.figs li {
+	color: #888;
+	font-size: 1.4em;
+	text-align: center;
+	margin-top: 0.5em;
+
+}
+.figs li p {
+	width: 100%;
+	text-align: center;
+	font-size: 1.0em;
+	font-family:"Segoe UI", "microsoft yahei light", "microsoft yahei";	
+}
+.figs li .li_img{
+
+	width: 2.8em;
+	height: 2.8em;
+	display: block;
+	margin-bottom: 0.5em;
+}
+.figs li .li_img img{
+	width: 100%;
+}
+.figs li .txt{
+	display: block;
+}
+
+
+
+/*sms*/
+
+.lm_sms .txtwrap {
+	width: 100%;
+	z-index: 20;
+}
+
+.lm_sms p {
+	width: 100%;
+	text-align: center;
+	font-family: "Segoe UI Light", "Segoe UI", "microsoft yahei light", "microsoft yahei";	
+}
+.lm_sms .txtwrap .title1{
+	font-size: 2.4em;
+	color:#333 ;
+	margin-bottom: 0.2em;
+}
+
+.lm_sms .txtwrap .txt1{
+	font-size: 1.5em;
+	color:#333 ;
+	padding-top: 0px;
+	
+}
+
+
+/*findphone*/
+.ntcAnimate , 
+.smsAnimate , 
+.fdpAnimate {
+	width: 80%;
+}
+.ntcAnimate img , 
+.smsAnimate img , 
+.fdpAnimate img{margin:3em auto; width: 100%;}
+
+
+.lm_findphone .txtwrap {
+
+	width: 100%;
+	z-index: 20;
+}
+
+.lm_findphone p {
+	width: 100%;
+	text-align: center;
+	font-family: "Segoe UI Light", "Segoe UI", "microsoft yahei light", "microsoft yahei";	
+}
+.lm_findphone .txtwrap .title1{
+	font-size: 2.4em;
+	color:#333 ;
+	margin-bottom: 0.2em;
+}
+
+.lm_findphone .txtwrap .txt1{
+	font-size: 1.5em;
+	color:#333 ;
+	padding-top: 0px;
+	
+}
+
+
+/* footer */
+.footer {
+	clear: both;
+	width: 100%;
+	height: 8em;
+	margin: 0 auto;
+	padding-top: 1em;
+	overflow: none;
+	background: #333333 ;
+}
+.logo_footer_txt{
+	width: 100%;
+	color: #999999;
+	text-align: center;
+	font-size: 2.4em;
+
+
+}
+.logo_footer_img{
+	width: 3.5em;
+	height: 3.5em;
+	display: block;
+   z-index: 20;
+ margin: 0 auto;
+}
+.logo_footer_img img{width: 100%;}
+

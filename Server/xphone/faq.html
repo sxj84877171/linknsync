@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="keywords" content="">
+		<meta name="description" itemprop="description" content="">
+		<meta itemprop="name" content="">
+		<meta name="description" itemprop="description" content="">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<title>LinknSYNC - FAQ</title>
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/faq.css" />
+		<script type="text/javascript" src="js/config.js" ></script>
+		
+		<script type="text/javascript">
+			var t0 = new Date();
+			var os = function() {
+					var ua = navigator.userAgent,
+						isWindowsPhone =/(?:Windows Phone)/.test(ua),
+						     isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone, 
+						     isAndroid = /(?:Android)/.test(ua), 
+						     isFireFox = /(?:Firefox)/.test(ua), 
+						     isChrome = /(?:Chrome|CriOS)/.test(ua),
+						     isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(ua)),
+						     isPhone = /(?:iPhone)/.test(ua) && !isTablet,
+						     isPc = !isPhone && !isAndroid && !isSymbian;
+						     return {
+						          isTablet: isTablet,
+						          isPhone: isPhone,
+						          isAndroid : isAndroid,
+						          isPc : isPc
+						     };
+						}();
+						var getSearch = function(name) {
+						    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+						    var r = window.location.search.substring(1).match(reg);
+						    if ( !! r) {
+						        return unescape(r[2]);
+						    }
+						    return null;
+						};
+						var searchstr = window.location.search,
+						    hashstr = window.location.hash;
+						var viewpc = getSearch("vpc");
+						if(!viewpc && (os.isAndroid || os.isPhone)){
+						location.replace('/m/');
+						}else if(os.isTablet){
+			location.replace('/m/'+searchstr+hashstr);
+						}
+						
+						(function(){
+				//语言
+				//change_language();
+				var language = navigator.browserLanguage ? navigator.browserLanguage : navigator.language;
+				if(language.indexOf('zh') >= 0)
+				{
+					window.location.href="cn/faq.html";
+				}
+			})();
+		</script>
+	</head>
+
+	<body id="pg0"  <!--onresizeend="resize()"-->>
+		<!--S header-->
+		<div id="top" class="top">
+			<div class="top_com">
+				<div class="logo">
+					<h1>
+                <a href="index.html"><img class="logo_l" src="images/logo_l.png" /><!--<span class="logo_en"></span>--><span class="txt_color_1">Link</span><span class="txt_color_2">n</span><span class="txt_color_3">S</span><span class="txt_color_1">YNC</span></a>
+            </h1>
+				</div>
+				<ul>
+					<li><a href="faq.html" class="top_nav_sel">FAQ</a></li>
+					<li><a href="timeline.html" id="update_log">History</a></li>
+					<li><a href="index.html" id="home_page">Home</a></li>
+					<li>
+						<a id="dl_play_lynked" class="g_dl" href="#"></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--E header-->
+
+		<div id="tbox">
+			<img id="gotop" src="images/gotop.png">
+		</div>
+
+		<div class="faq-main" id="faq-main">
+
+			<div class="faq-header">
+				<h2 class="faq-header-title">
+			<span class="faq-header-title-word">FAQ</span>
+			</h2>
+			</div>
+			<div id="faq_page">
+				<div class="page1" style="display: block;">
+					<div class="question_item ">
+						<h3 class="question"><span>Q: </span>What functions does LinknSYNC have? </h3>
+						<div class="answer">
+							<!--<p class="answer-a">A:</p>-->
+							<p>1. Notification management on your PC.</p>
+							<p class="answer-small">Automatically push notifications, such as SMS, phone calls, mail alerts, news prompts from your Android phone to the PC you’re working with. Get rid of your worry of missing any important notifications while working. If you don’t want to be disturbed, just block all notifications and junk SMS messages with a simple click.
+</p>
+							<p>2. SMS management and quick reply on your PC.</p>
+							<p class="answer-small">View and quickly reply your messages on your PC. Use the computer keyboard for faster typing and send out your message in a flash.</p>
+							<p>3. Help you find your phone.</p>
+							<p class="answer-small">Use LinknSYNC to connect your Android phone to your PC. When you forget where is your phone, just click on your PC to ring your phone. You also can play with this interesting feature when you are boring.</p>
+							<p>4. Add news to your favorites.</p>
+							<p class="answer-small">View news on your PC and easily add the ones you like to your favorites for better management and future use.
+</p>
+							<p>5. Monitor your phone status on your PC.</p>
+							<p class="answer-small">The battery status and network status of your Android phone are also displayed on your Windows PC.
+</p>
+							<p class="answer-small">LinknSYNC features wireless connection, simple usage, convenient interaction, better notification management, and comfortable interface.</p>
+						</div>
+					</div>
+					<div class="question_item ">
+						<h3 class="question"><span>Q: </span>How to use LinknSYNC?</h3>
+						<div class="answer">
+							<!--<p class="answer-a">A:</p>-->
+							<p>Step 1: Download and install LinknSYNC to your PC and Android-based phone from <a href="http://www.linkandsync.com" target="_blank">www.linkandsync.com</a>.</p>
+							<p>Step 2: Launch LinknSYNC on your PC and Android-based phone.</p>
+							<p>Step 3: Tap the Connect button displayed on your phone to connect your PC.</p>
+						</div>
+					</div>
+					<div class="question_item ">
+						<h3 class="question"><span>Q: </span>Do the Android-based phone and PC need to be in the same network?</h3>
+						<div class="answer">
+							<!--<p class="answer-a">A:</p>-->
+							<p>No. It is OK if they are connected to the internet.</p>
+						</div>
+					</div>
+				
+					
+					<br class="clear">
+				</div>
+
+			</div>
+		</div>
+		<br class="clear">
+		<!--footer-->
+		<div id="footer" class="footer">
+			<div class="logo_footer_txt">
+				<div class="logo_footer_img"></div>LinknSYNC
+			</div>
+
+		</div>
+		
+		
+	</body>
+<script type="text/javascript" src="js/jquery.min.js" ></script>
+	<!--<script type="text/javascript" src="js/faq.js" ></script>-->
+		<script type="text/javascript">
+		//Download URL
+$(function(){
+	
+	function DownloadInformation()
+	{
+		//安卓端
+		this.oPlayLynked = document.getElementById('dl_play_lynked');
+		
+	}
+	
+	DownloadInformation.prototype.setUrl = function()
+	{
+		//安卓端
+		this.oPlayLynked.href = play_lynked;
+	}
+	
+	var oDownloadInformation = new DownloadInformation();
+	oDownloadInformation.setUrl();
+});
+		</script>
+</html>

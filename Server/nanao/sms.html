@@ -1,0 +1,163 @@
+﻿<html>
+<head>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$('#list').children().remove();
+	
+	getAllSMS();
+});
+
+function submit(content) {
+	if(!content || content.val().length == 0) {
+		alert("Content is empty");
+		return;
+	}
+	
+	$.ajax({
+		type: 'post',
+		url: '/sms/publish',
+		data: {content: content.val()},
+		success: function(result) {
+				try {
+					var packet = JSON.parse(result);
+					if(packet.cmd == 'kBenisonSMS') {
+						content.val('');
+						getAllSMS();
+					} else {
+						alert('Failed');
+					}
+				} catch(e) {
+				}
+			},
+		error: function() {
+		}
+	});
+};
+
+function getAllSMS() {
+	$.ajax({
+		type: 'get',
+		url: '/sms/query',
+		success: function(result) {
+				try {
+					$('#list').children().remove();
+					
+					var packet = JSON.parse(result);
+					if(packet.cmd == 'kBenisonSMS') {
+						for(var i in packet.data.sms) {
+							var sms = packet.data.sms[i];
+							var $item = $('<div class="item"><div class="desc" /><div class="close">X</div></div>');
+							$item.attr('id', 'item' + sms.id);							
+							
+							var desc = $item.find('.desc');
+							desc.text(sms.content);
+							
+							var close = $item.find('.close');
+							close.attr('smsid', sms.id);
+							
+							setEvent($item, close, sms.id);
+
+							$('#list').append($item);
+						}
+					} else {
+						alert('Failed');
+					}
+				} catch(e) {
+				}
+			},
+		error: function() {
+		}
+	});
+}
+
+function setEvent(element, button, smsID){
+	button.hide();
+	button.attr('onclick', "deleteSMS('" + smsID + "')");
+	
+	element.mouseover(function() {
+		button.show();
+	});
+	
+	element.mouseout(function() {
+		button.hide();
+	});
+}
+
+function deleteSMS(smsID) {
+	if(!smsID)
+		return;
+	
+	var result = confirm("Do you want to delete?");
+	if(!result)
+		return;
+		
+	$.get('/sms/delete?id=' + smsID, function(result) {
+		try {
+			var packet = JSON.parse(result);
+			if(packet.cmd == 'kBenisonSMS') {
+				$('#list').children('#item' + smsID).remove();
+			} else {
+				alert('Delete Failed');
+			}
+		} catch(e) {
+			alert('Delete Failed');
+		}
+	});
+}
+
+</script>
+
+<style type="text/css">
+.list {
+    width:100%;
+	height: 400px;
+    overflow:auto;
+	overflow-x: hidden;
+	background-color:#e1e3e0;
+	border-top:1px solid #ccc;
+}
+
+.list .item {
+	height: 24px;
+}
+
+.list .item .desc {
+	width: 100%;
+	float:left;
+}
+
+.list .item .close {
+	width: 20px;
+	margin-left: -20px;
+	float:right;
+	text-align: center;
+	background-color:#fff;
+	cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+Benison SMS:<br>
+<textarea type="text" name="content" id="content" rows="8" cols="60" maxlength="70" value=""></textarea>
+<br><br><input type="button" value="Submit" onclick="submit($('#content'));"></input>
+
+<form method="get" action="/sms/query">
+	<input type="input" id="index" name="index" value="0">
+	<input type="input" id="count" name="count" value="0">
+  <input type="submit" value="Query"></input>
+</form>
+
+<form method="get" action="/sms/change">
+	<input type="input" id="id" name="id" value="1">
+  <input type="submit" value="Change"></input>
+</form>
+
+<div id="list" class="list">
+	<div class="item"><div class="desc">羊起生活的风帆，走向羊关通途。</div><div class="close">X</div></div>
+</div>
+
+</body>
+</html>

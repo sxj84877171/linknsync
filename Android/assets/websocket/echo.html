@@ -1,0 +1,294 @@
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more
+  contributor license agreements.  See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership.
+  The ASF licenses this file to You under the Apache License, Version 2.0
+  (the "License"); you may not use this file except in compliance with
+  the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apache Tomcat WebSocket Examples: Echo</title>
+    <style type="text/css">
+        #connect-container {
+            float: left;
+            width: 400px
+        }
+
+        #connect-container div {
+            padding: 5px;
+        }
+
+        #console-container {
+            float: left;
+            margin-left: 15px;
+            width: 400px;
+        }
+
+        #console {
+            border: 1px solid #CCCCCC;
+            border-right-color: #999999;
+            border-bottom-color: #999999;
+            height: 170px;
+            overflow-y: scroll;
+            padding: 5px;
+            width: 100%;
+        }
+
+        #console p {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <script type="text/javascript">
+    	
+    	//组织JSON格式:to Jeremy, Plz organize cmd json string here
+        function organizeCmdJsonString(cmd)
+        {
+        	var CmdJson = "";
+        	
+        	switch (cmd)
+        	{
+        		  case 1: //组织获取联系人的JSON String
+        		  break;
+        		  
+        		  case 2: //组织获取所有手机信息的JSON String
+        		  break;
+        		  
+        		  case 3: //组织获取指定联系人JSON String
+        		  break;
+        		  
+        		  case 4: //组织指定联系人发消息JSON String
+        		  break;
+        		  
+        		  default: //缺省
+        		  break;
+        	}
+        	
+        	return CmdJson;
+        }
+        
+    	//在这里解析返回的JSON记录 to jeremy
+    	  function receiveDatafromPhone(jsonresult)
+    	  {
+    	  	log('to Jeremy: please parse the jason result here!');
+    	  	log(jsonresult);
+    	  }
+    	
+        var ws = null;
+        var reConnectTimer = -1; 
+        
+        function setConnected(connected)
+         {
+            //document.getElementById('connect').disabled = connected;
+            //document.getElementById('disconnect').disabled = !connected;
+            document.getElementById('echo').disabled = !connected;
+        }
+
+        function connect() 
+        {
+		
+		       log('Connecting...!');
+		       
+		        if (-1 != reConnectTimer)
+				    {
+				      clearInterval(reConnectTimer);
+				      reConnectTimer = -1;
+				    }
+				   
+            var target = document.getElementById('target').value;
+            if (target == '') 
+            {
+                alert('Please select server side connection implementation.');
+                return;
+            }
+            
+            if ('WebSocket' in window) 
+            {
+            	 log('Your browser support WebSocket!');
+                ws = new WebSocket(target);
+            } 
+            else if ('MozWebSocket' in window) 
+            {
+            	 log('Your browser support WebSocket!');
+                ws = new MozWebSocket(target);
+            } 
+            else 
+            {
+                log('WebSocket is not supported by this browser.');
+                return;
+            };
+            
+            ws.onopen = function () 
+            {
+                setConnected(true);
+                log('Info: WebSocket connection opened.');
+				   };
+				   
+            ws.onmessage = function (event) 
+            {
+                log('Received: ' + event.data);
+                receiveDatafromPhone(event.data);
+				    };
+            ws.onclose = function () 
+            {
+                setConnected(false);
+                log('Info: WebSocket connection closed.');
+            };
+			     ws.onerror = function(e) 
+			     {
+			       //log('error');
+				
+			        //reConnectTimer = setInterval("reConnect()",2000); 
+			     };
+        }
+
+        function disconnect() 
+        {
+            if (ws != null) {
+                ws.close();
+                ws = null;
+            }
+            setConnected(false);
+        }
+		
+		   function reConnect() 
+		   {
+		      if (ws != null) 
+		      {
+             ws.close();
+				  }
+             ws = null;
+				
+				     connect();
+       }
+		 
+
+        function echo() 
+        {
+            if (ws != null) {
+                var message = document.getElementById('message').value;
+                //log('Sent: ' + message);
+                ws.send(message);
+            } 
+            else 
+            {
+                alert('WebSocket connection not established, please connect.');
+            }
+        }
+
+        function updateTarget(target) 
+        {
+            document.getElementById('target').value = 'ws://' + window.location.host + target;
+        }
+        
+        
+        function SendCommand(cmd)
+        {
+        	log('click: ' + cmd);
+        	 var CmdJson = organizeCmdJsonString(cmd);
+        	 if (CmdJson.length < 1)
+        	 {
+        	 	  log('warining: Please Input JsonCmdString');
+        	 }
+        	  else
+        	 	{
+        	 		log('Sent: ' + CmdJson);
+        	     ws.send(CmdJson);
+        	  }
+        }
+
+        var tcl = 1;
+        function log(message) 
+        {
+            var console = document.getElementById('console');
+            var p = document.createElement('p');
+            p.style.wordWrap = 'break-word';
+            
+            p.style.color = "#00" +  tcl + tcl + tcl + tcl ;
+            p.appendChild(document.createTextNode(message));
+            console.appendChild(p);
+            
+            while (console.childNodes.length > 50) {
+                console.removeChild(console.firstChild);
+            }
+            console.scrollTop = console.scrollHeight;
+            tcl++;
+            tcl = tcl % 10;
+        }
+        
+        window.onload = function()
+        {
+        	document.getElementById('target').value = 'ws://' + window.location.host + "/examples/websocket/echoMessage";
+        	connect();
+        }
+    </script>
+</head>
+<body bgcolor="#f5f5f5">
+<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websockets rely on Javascript being enabled. Please enable
+    Javascript and reload this page!</h2></noscript>
+<div>
+    <div id="connect-container">
+         <div>
+            <!--<span>Connect using:</span>  -->
+            <!-- echo example using streams on the server side
+            <input id="radio1" type="radio" name="group1" value="/examples/websocket/echoStream"
+                   onclick="updateTarget(this.value);"> <label for="radio1">streams</label>   -->
+            <!-- echo example using messages on the server side 
+            <input id="radio2" type="radio" name="group1" value="/examples/websocket/echoMessage"
+                   onclick="updateTarget(this.value);"> <label for="radio2">messages</label>-->
+          </div>
+        
+      
+         <div>
+            <input id="target" type="text" size="40" style="width: 350px; display:none"/>
+         </div>
+        
+        
+        <div>
+           <!-- <button id="connect" onclick="connect();">Connect</button>
+            <button id="disconnect" disabled="disabled" onclick="disconnect();">Disconnect</button> -->
+        </div>
+        
+        
+          <div>
+          	 
+          	      <span><b>Console Menu.</b></span><br><br>
+          	         <input id="cmd1" type="radio" name="menu" value="1" onclick="SendCommand(this.value);"> <label for="cmd1">获取全部联系人信息</label><br><br>
+                     <input id="cmd2" type="radio" name="menu" value="2" onclick="SendCommand(this.value);"> <label for="cmd2">获取所有手机消息</label><br><br>
+                     <input id="cmd3" type="radio" name="menu" value="3" onclick="SendCommand(this.value);"> <label for="cmd3">获取指定联系人的消息</label><br><br>
+                     <input id="cmd4" type="radio" name="menu" value="4" onclick="SendCommand(this.value);"> <label for="cmd4">指定联系人发消息</label><br><br>
+                     <input id="cmd5" type="radio" name="menu" value="5" onclick="SendCommand(this.value);"> <label for="cmd5">获取所有Notification信息</label><br><br>
+                    
+                   
+        	</div>
+        	<br>
+        <div>
+        	 <span>Send Message to somebody</span><br>
+          <br>  <textarea id="message" style="width: 350px; height:200px" >input message</textarea>
+        </div>
+        <div>
+            <button id="echo" onclick="echo();" disabled="disabled">send cmd</button>
+        </div>
+    </div>
+        <div id="console-container" style="height:550px">
+	   <span>Result:</span>
+           <div id="console" style="height:550px;"></div>
+    </div>
+	 
+
+</div>
+
+<A href="" name="redirect" id = "redirect"> </A>
+
+</body>
+</html>

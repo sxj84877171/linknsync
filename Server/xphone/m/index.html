@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=no">
+		<title>LinknSYNC - Link your phone, sync your messages</title>
+		<link rel="stylesheet" href="m.css" />
+		<script type="text/javascript" src="m.js"></script>
+		<script type="text/javascript">
+			(function(){
+	//语言
+	//change_language();
+	var language = navigator.browserLanguage ? navigator.browserLanguage : navigator.language;
+	if(language.indexOf('zh') >= 0)
+	{
+		window.location.href="../cn/m/";
+	}
+})();
+		</script>
+		
+	</head>
+
+<body id="pg0">
+		<!--S header-->
+		<div id="top" class="top">
+    <div class="top_com">
+        <div class="logo"><img class="logo_l" src="images/m_logo_en.png" /></div>
+    </div>
+</div>
+
+		<!--S figure-->
+		<div class="content">
+			<div class="lmtt">
+				<p class="txt1"><span class="txt_color_1">Link</span><span class="txt_color_2">n</span><span class="txt_color_3">S</span><span class="txt_color_1">YNC</span></p>
+				<p class="txt2"><span class="txt2_2">Link</span> your computer and <span class="txt2_2">sync</span> your messages</p>
+				<a class="bndl" id="dl_phone_lynked"  href="#" target="_blank">Download</a>
+			</div>
+			
+			<div class="lm_notice">
+					<div class="ntcAnimate">
+						<img src="images/first_pc_1.png" />
+					</div>
+					<div class="txtwrap">
+						<p class="title1">Notifications</p>
+						<p class="txt1">Now, you won't miss</p>
+						<p class="txt1">any notifications on your phone.</p>
+						<ul class="figs ntc_figs">
+							<li class="line1">
+								<div class="li_img"><img src="images/04.png" /></div>
+								<div class="txt">
+									<p>Only send meaningful notifications.</p>
+									<p>You can manage notifications.</p>
+								</div>
+							</li>
+							<li class="line2">
+								<div class="li_img"><img src="images/07.png" /></div>
+								<div class="txt">
+									<p>All data is encrypted.</p>
+									<p>Data transferred securely. Privacy well protected.</p>
+								</div>
+							</li>
+						</ul>
+				</div>
+			</div>
+			<div class="lm_sms">
+					<div class="smsAnimate">
+							<img src="images/second_pc_1.png" />
+					</div>
+					<div class="txtwrap">
+						<p class="title1">Messages</p>
+						<p class="txt1">You can receive your messages</p>
+						<p class="txt1">no matter where your phone is.</p>
+						<ul class="figs ntc_figs">
+							<li class="line1">
+								<div class="li_img"><img src="images/01.png" /></div>
+								<div class="txt">
+									<p>Read, reply, or add your messages to My Favorites.</p>
+									<p>Block useless messages.</p>
+								</div>
+							</li>
+							<li class="line2">
+								<div class="li_img"><img src="images/07.png" /></div>
+								<div class="txt">
+									<p>All data is encrypted.</p>
+									<p>Data transferred securely. Privacy well protected.</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+			</div>
+
+			<div class="lm_findphone">
+					<div class="fdpAnimate">
+							<img src="images/third_bar_1.png" />
+					</div>
+					<div class="txtwrap">
+						<p class="title1">Where is your phone?</p>
+						<p class="txt1"></p>
+						<p class="txt1">It is easy to find your phone if it rings.</p>
+						
+					</div>
+			</div>
+
+		</div>
+		<!--E figure-->
+		
+		<!--footer-->
+		<div id="footer" class="footer">
+	<div class="logo_footer_img"><img src="images/logo_footer.png" /></div>
+	<div class="logo_footer_txt">LinknSYNC</div>
+</div>
+
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+
+		<script type="text/javascript" src="../js/config.js" ></script>
+		<script type="text/javascript">
+		
+//Download URL
+$(function(){
+	function DownloadInformation()
+	{
+		//安卓端
+		this.oAndroidLynked = document.getElementById('dl_phone_lynked');
+	}
+	DownloadInformation.prototype.setUrl = function()
+	{
+		//安卓端
+		this.oAndroidLynked.href = play_lynked;
+	}
+var oDownloadInformation = new DownloadInformation();
+oDownloadInformation.setUrl();
+});
+		</script>
+	<!--weixin-->	
+		<script type="text/javascript">
+			function is_weixin() {
+			    var ua = navigator.userAgent.toLowerCase();
+			    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+			        return true;
+			    } else {
+			        return false;
+			    }
+			}
+			var isWeixin = is_weixin();
+			var winHeight = typeof window.innerHeight != 'undefined' ? window.innerHeight : document.documentElement.clientHeight;
+			function loadHtml(){
+				var div = document.createElement('div');
+				div.id = 'weixin-tip';
+				div.innerHTML = '<p><img src="images/live_weixin.png" alt="微信打开"/></p>';
+				document.body.appendChild(div);
+			}
+			
+			function loadStyleText(cssText) {
+		        var style = document.createElement('style');
+		        style.rel = 'stylesheet';
+		        style.type = 'text/css';
+		        try {
+		            style.appendChild(document.createTextNode(cssText));
+		        } catch (e) {
+		            style.styleSheet.cssText = cssText; //ie9以下
+		        }
+	            var head=document.getElementsByTagName("head")[0]; //head标签之间加上style样式
+	            head.appendChild(style); 
+		    }
+		    var cssText = "#weixin-tip{position: fixed; left:0; top:0; background: rgba(0,0,0,0.85); filter:alpha(opacity=80); width: 100%; height:100%; z-index: 100;}  #weixin-tip p{text-align: center; margin-top: 10%; width:90%; padding:0 5%;}    #weixin-tip p img{text-align: center; width:100%; margin-top: 10%; padding:0 5%;}";
+			if(isWeixin){
+				loadHtml();
+				loadStyleText(cssText);
+			}
+		</script>
+
+		
+	</body>
+
+</html>

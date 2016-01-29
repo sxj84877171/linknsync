@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LINKit</string>
+    <string name="generate_notification">Generate Notification</string>
+    <string name="start_service">Start Service</string>
+    <string name="notification_daemon">Notification Daemon</string>
+    <string name="notification_icon">Notification Icon</string>
+    <string name="send">Send</string>
+    <string name="imageview_contentdescription_app_poster">App Poster</string>
+    <string name="imageview_contentdescription_gray_stroke">Gray Stroke</string>
+    <string name="did_connect_to">Connected to</string>
+    <string name="disconnect">disconnect</string>
+    <string name="website_promotion">To use it, open a browser on your PC, input the following address::\nhttp://www.%s</string>
+    <string name="website_url">115.29.178.5</string>
+    <string name="dev_website_url">114.215.236.240</string>
+    <string name="capture_description">QR code will be automatically scanned when it is pointed at by the camera</string>
+    <string name="scan_tips">QR code will be automatically scanned when it is pointed at by the camera</string>
+    <string name="about">About</string>
+    <string name="ok">OK</string>
+    <string name="exit">Exit</string>
+    <string name="login_facebook">Login Facebook</string>
+    <string name="logout_facebook">Logout Facebook</string>
+    <string name="update">Update</string>
+    <string name="notification_setting">Notification</string>
+    <string name="s_update_version_match">No new version</string>
+    <string name="s_update_get_server_information_failed">Get new version information fail</string>
+    <string name="s_update_sd_card_unavailable">SD card unuseble</string>
+    <string name="s_update_download_failed">New version download fail</string>
+    <string name="s_update_title">Update</string>
+    <string name="s_update_download">Download updates</string>
+    <string name="url_server">http://192.168.1.100/examples/update.xml</string>
+    <string name="s_smart_mention">Update</string>
+    <string name="s_smart_confirm">OK</string>
+    <string name="s_smart_cancel">Cancel</string>
+    <string name="s_wifi_disconnect">WIFI disconnected</string>
+    <string name="s_wifi_connect">WIFI connected</string>
+    <string name="wifi_state_disconnected">No internet access, please check your network settings.</string>
+    <string name="state_ws_disconnected">Disconnected</string>
+    <string name="state_ws_connecting">Connecting..</string>
+    <string name="state_ws_reconnecting">ReConnecting..</string>
+    <string name="state_pairing">Connecting...</string>
+    <string name="state_get_phone_info">Getting phone information</string>
+    <string name="state_send_all_contacts">Contact synchronizing</string>
+    <string name="state_send_all_sms">Synchronizing..</string>
+    <string name="state_send_all_notification">Synchronizing...</string>
+    <string name="state_synchronized">Synchroniz success</string>
+    <string name="state_finished">Connected, synchronized</string>
+    <string name="state_pc_disconnect">PC has disconnected</string>
+    <string name="state_send_sms_info_to_pc">SMS synchronizing</string>
+    <string name="state_send_notification_info_to_pc">Notification synchronizing</string>
+    <string name="state_phone_disconnect">PC is disconnected</string>
+    <string name="state_get_all_contacts_fail">Get contact fail</string>
+    <string name="state_get_all_sms_fail">Get sms fail</string>
+    <string name="state_get_all_notification_fail">Get notification fail</string>
+    <string name="state_get_phone_info_fail">Get phone information fail</string>
+    <string name="scan_qrcode_connect">Connect PC</string>
+    <string name="scan_qrcode_disconnect">Disconnect PC</string>
+    <string name="setting_notification_service_title">Notification privilege setting</string>
+    <string name="setting_notification_service_message">LINKit can show all the notification from your phone, well, if you enable it.</string>
+    <string name="setting_notification_service_cancel">Later</string>
+    <string name="setting_notification_service_set">Enable Now</string>
+    <string name="developer">Developer mode</string>
+    <string name="developer_open">Enable developer mode</string>
+    <string name="developer_close">Disable developer mode</string>
+    <string name="about_message">Linkit (alpha build 0519) \nVersion:%s</string>
+    <string name="log">Log</string>
+    <string name="message_title">Messager</string>
+    <string name="contact_title">Contacts</string>
+    <string name="call_title">Call</string>
+    <string name="main_heaer_title">Send/Receiver SMS from PC</string>
+    <string name="setting_notification_service_open">You can enable if from LINKit Setting</string>
+    <string name="sms_loading_title">Send and receive messages\nfrom your computer</string>
+    <string name="contact_loading_title">Check your contacts and\nrecent activities</string>
+    <string name="call_loading_title">Call your friends\nfrom your computer</string>
+    
+    <string name="username">Username:</string>
+    <string name="username_hint">type username</string>
+    <string name="password">Password:</string>
+    <string name="password_hint">type password</string>
+    
+    <string name="login">Login</string>
+    <string name="logout">Manage account</string>
+    <string name="cancel">Cancel</string>
+    
+    <string name="state_network_disconnected">disconnect</string>
+    <string name="savepassword">Save username and password.</string>
+    <string name="autologin">next time auto login.</string>
+    
+    
+    <string name="lenovoid_confict_title">Offline notice</string>
+    <string name="lenovoid_confict_message">Your account has logon on another Android device, this device is offline now.</string>
+    <string name="lenovoid_confict_ok">OK</string>
+
+    <string-array name="log_level">
+        <item>VERBOSE</item>
+        <item>DEBUG</item>
+        <item>INFO</item>
+        <item>WARN</item>
+        <item>ERROR</item>
+        <item>SUCCESS</item>
+    </string-array>
+    <string-array name="log_file">
+        <item>Activity</item>
+        <item>Service</item>
+        <item>NoService</item>
+    </string-array>
+
+</resources>

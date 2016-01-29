@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<style name="com_lenovo_lsf_uititlebackground">
+		<item name="android:background">#ffffff</item>
+	</style>
+
+	<style name="com_lenovo_lsf_ui" parent="android:Theme.Light">
+		<item name="android:windowTitleSize">41dp</item>
+		<item name="android:windowFullscreen">false</item>
+		<item name="android:windowBackground">@color/com_lenovo_lsf_appcolor</item>
+		<item name="android:windowTitleBackgroundStyle">@style/com_lenovo_lsf_uititlebackground</item>
+		<item name="android:windowNoTitle">true</item>
+	</style>
+	
+	<style name="com_lenovo_lsf_ui_pslogin" parent="android:Theme.Light">
+		<item name="android:windowNoTitle">true</item>
+	</style>
+
+	<style name="com_lenovo_lsf_ui.no_title">
+		<item name="android:windowNoTitle">true</item>
+	</style>
+
+	<style name="com_lenovo_lsf_head_text">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textColor">#2e2e2e</item>
+		<item name="android:textSize">24sp</item>
+	</style>
+
+	<style name="LenovoSDKDialog" parent="android:style/Theme.Dialog">
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowBackground">@android:color/white</item>
+	</style>
+
+	<style name="login_autocomplete_drop" parent="@android:style/Widget.AutoCompleteTextView">
+		<item name="android:focusable">true</item>
+		<item name="android:popupBackground">@drawable/com_lenovo_lsf_autolist</item>
+		<item name="android:dropDownVerticalOffset">3dp</item>
+	</style>
+
+	<style name="com_lenovo_lsf_text">
+		<item name="android:textColor">#191919</item>
+		<item name="android:textSize">18sp</item>
+	</style>
+
+	<style name="com_lenovo_lsf_text.white">
+		<item name="android:textColor">#FFFFFFFF</item>
+	</style>
+
+	<style name="com_lenovo_lsf_text.hint">
+		<item name="android:textColor">#A3A3A3</item>
+	</style>
+
+	<style name="com_lenovo_lsf_text.edit">
+		<item name="android:textSize">14sp</item>
+		<item name="android:textColorHint">#D1D1D1</item>
+	</style>
+
+	<style name="com_lenovo_lsf_text.resend">
+		<item name="android:textSize">14sp</item>
+	</style>
+
+	<style name="com_lenovo_lsf_text.tip">
+		<item name="android:textColor">#757575</item>
+		<item name="android:textSize">14sp</item>
+	</style>
+
+	<style name="com_lenovo_lsf_text.error">
+		<item name="android:textSize">12sp</item>
+		<item name="android:textColor">#FF0000</item>
+	</style>
+
+	<style name="com_lenovo_lsf_edit">
+		<item name="android:layout_height">@dimen/com_lenovo_lsf_content_edittext_height</item>
+		<item name="android:background">@drawable/com_lenovo_lsf_edittext_background_selector</item>
+	</style>
+
+	<style name="com_lenovo_lsf_button">
+		<item name="android:layout_height">32dp</item>
+	</style>
+
+	<style name="com_lenovo_lsf_button.commit" parent="@style/com_lenovo_lsf_text">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">36dp</item>
+		<item name="android:background">@drawable/com_lenovo_lsf_btn_inter_onekey_selector_up</item>
+	</style>
+
+	<style name="com_lenovo_lsf_button.commit.blue" parent="@style/com_lenovo_lsf_text.white">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">36dp</item>
+		<item name="android:background">@drawable/com_lenovo_lsf_btn_inter_onekey_selector_up</item>
+	</style>
+
+	<style name="com_lenovo_lsf_button.send">
+		<item name="android:layout_width">106dp</item>
+		<item name="android:background">@drawable/com_lenovo_lsf_get_captcha_button_selector</item>
+		<item name="android:textAppearance">@style/com_lenovo_lsf_text.resend</item>
+	</style>
+
+	<style name="com_lenovo_lsf_content">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">fill_parent</item>
+		<item name="android:paddingLeft">@dimen/com_lenovo_lsf_content_padding_left_right</item>
+		<item name="android:paddingRight">@dimen/com_lenovo_lsf_content_padding_left_right</item>
+		<item name="android:background">?android:attr/windowBackground</item>
+		<item name="android:paddingTop">@dimen/com_lenovo_lsf_content_margin_top</item>
+	</style>
+
+	<style name="com_lenovo_lsf_ui.dialog">
+		<item name="android:windowIsFloating">true</item>
+	</style>
+
+	<style name="com_lenovo_lsf_divider_title">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">1px</item>
+		<item name="android:background">#d1d1d1</item>
+	</style>
+
+	<style name="com_lenovo_lsf_divider_content">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">1px</item>
+		<item name="android:background">#efefef</item>
+	</style>
+
+	<style name="CustomProgressDialog" parent="@android:style/Theme.Dialog">
+		<item name="android:windowFrame">@null</item>
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowIsTranslucent">true</item>
+		<item name="android:windowBackground">@android:color/transparent</item>
+	</style>
+
+	<style name="com_lenovo_lsf_setting_item">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">52dp</item>
+		<item name="android:paddingLeft">18dp</item>
+		<item name="android:paddingRight">18dp</item>
+		<item name="android:background">@drawable/com_lenovo_lsf_list_item_selector</item>
+	</style>
+	
+	<style name="com_lenovo_lsf_setting_item_feed">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:paddingLeft">18dp</item>
+		<item name="android:paddingRight">18dp</item>
+	</style>
+
+	<style name="com_lenovo_lsf_setting_item_title">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">24dp</item>
+		<item name="android:textColor">#757575</item>
+		<item name="android:textSize">12sp</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:layout_marginLeft">16dp</item>
+		<item name="android:layout_marginRight">16dp</item>
+	</style>
+
+	<style name="com_lenovo_lsf_setting_icon">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:id">@android:id/icon</item>
+	</style>
+
+	<style name="com_lenovo_lsf_regist_editext_hint_style">
+	    <item name="android:textColorHint">#d1d1d1</item>
+	    <item name="android:textSize">14sp</item>
+	</style>
+	
+	<!-- 提供透明背景的activity -->
+	<style name="com_lenovo_lsf_theme_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item> <!-- Dialog的windowFrame框为无 -->
+        <item name="android:windowIsFloating">true</item> <!-- 是否漂现在activity上 -->
+        <item name="android:windowIsTranslucent">true</item> <!-- 是否半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item> 
+        <item name="android:windowBackground">@null</item><!--除去背景色-->
+    </style>
+	<style name="com_lenovo_lsf_text_limit" >
+        <item name="android:ellipsize">end</item> <!-- Dialog的windowFrame框为无 -->
+        <item name="android:singleLine">true</item> <!-- 是否漂现在activity上 -->
+        <item name="android:maxWidth">200dip</item> <!-- 是否半透明 -->
+    </style>
+    
+	<style name="com_lenovo_lsf_content.left">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">fill_parent</item>
+		<item name="android:paddingLeft">0dip</item>
+		<item name="android:paddingRight">0dip</item>
+		<item name="android:background">?android:attr/windowBackground</item>
+		<item name="android:paddingTop">16dip</item>
+	</style>
+	
+</resources>

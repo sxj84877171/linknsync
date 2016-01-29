@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/com_lenovo_lsf_appcolor"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/com_lenovo_lsf_my_account_content_margin_left_right"
+        android:layout_marginRight="@dimen/com_lenovo_lsf_my_account_content_margin_left_right"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/com_lenovo_lsf_setting_item_title"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:text="@string/com_lenovo_lsf_string_my_account_with_title" />
+
+        <TextView
+            android:id="@+id/current_account_tview"
+            style="@style/com_lenovo_lsf_setting_item_title"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/com_lenovo_lsf_rank_listview_divider_color" />
+
+        <RelativeLayout
+            android:id="@+id/rl_my_account_of_password"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/com_lenovo_lsf_my_account_setting_item_height"
+            android:paddingLeft="@dimen/com_lenovo_lsf_my_account_content_margin_left_right"
+            android:paddingRight="@dimen/com_lenovo_lsf_my_account_content_margin_left_right"
+            android:background="@drawable/com_lenovo_lsf_list_item_selector"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:duplicateParentState="true"
+                android:text="@string/com_lenovo_lsf_change_string_changepassword"
+                android:textColor="@drawable/com_lenovo_lsf_list_item_text_field_selector"
+                android:textSize="@dimen/com_lenovo_lsf_content_text_font_size" />
+
+            <TextView
+                android:id="@+id/tv_my_account_password_next_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/com_lenovo_lsf_account_setting_item_right_icon" />
+
+            <TextView
+                android:id="@+id/pass_word_state_tview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/tv_my_account_password_next_arrow"
+                android:text="@string/com_lenovo_lsft_string_my_account_unset"
+                android:textAppearance="@style/com_lenovo_lsf_text.hint"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#efefef" />
+
+        <RelativeLayout
+            android:id="@+id/rl_my_account_personal_information"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/com_lenovo_lsf_my_account_setting_item_height"
+            android:paddingLeft="@dimen/com_lenovo_lsf_my_account_content_margin_left_right"
+            android:paddingRight="@dimen/com_lenovo_lsf_my_account_content_margin_left_right"
+            android:background="@drawable/com_lenovo_lsf_list_item_selector">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:duplicateParentState="true"
+                android:text="@string/com_lenovo_lsf_string_change_personal_information"
+                android:textColor="@drawable/com_lenovo_lsf_list_item_text_field_selector"
+                android:textSize="@dimen/com_lenovo_lsf_content_text_font_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/com_lenovo_lsf_account_setting_item_right_icon" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#efefef" />
+
+        <RelativeLayout
+            android:id="@+id/rl_my_account_change_account"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/com_lenovo_lsf_my_account_setting_item_height"
+            android:paddingLeft="@dimen/com_lenovo_lsf_my_account_content_margin_left_right"
+            android:paddingRight="@dimen/com_lenovo_lsf_my_account_content_margin_left_right"
+            android:background="@drawable/com_lenovo_lsf_list_item_selector">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:duplicateParentState="true"
+                android:text="@string/com_lenovo_lsf_string_change_account"
+                android:textColor="@drawable/com_lenovo_lsf_list_item_text_field_selector"
+                android:textSize="@dimen/com_lenovo_lsf_content_text_font_size" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/com_lenovo_lsf_account_setting_item_right_icon" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#efefef" />
+    
+
+</LinearLayout>

@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="html_normal">
+<head>
+<meta  charset="UTF-8" />
+<title>LINKit</title>
+<link rel="stylesheet" type="text/css" media="all" href="css/notice.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/notice.js"></script>
+
+</head>
+<body>
+ <div id="notice_notification_contain" class="notice_notification_contain">
+ 	<div id="notice_notification_top" class="notice_notification_top">
+    	<div class="header">
+        	<div class="header_icon fl"></div>
+            <div class="header_title fl">手机通知</div>
+            <div id="notice_notification_amount" class="notice_notification_amount">
+            	<a class="left_btn fl" href="#"></a>
+                <div class="amount_num fl">
+                	<span class="now_count">1</span><span>/</span><span class="all_count">1</span>
+                </div>
+                <a class="right_btn fr" href="javascript:;"></a>
+            </div>
+            <a id="notice_notification_close" class="close_light fr" href="javascript:;"></a>
+            <a id="notice_notification_to_main" class="to_main_interface fr" href="javascript:;"></a>
+        </div>
+        
+        <div class="main">
+        	<!--div id="notice_notification_main_info" class="main_info">
+            	<div class="head_img fl"></div>
+                <div class="name_num fl">Jack Ma</div>
+                <div class="time fr">03-05 10:36</div>
+            </div>
+            <div id="notice_notification_main_txt" class="main_txt">
+            	<p>
+                作为全球个人电脑市场的领导企业，联想从事开发、制造并销售可靠的、安全易用的技术产品及优质专业的服务，帮助全球客户和合作伙伴取得成功。
+                </p>
+            </div-->
+        </div>
+    </div>
+    
+    <div id="notice_notification_bottom" class="notice_notification_bottom">
+        <a id="clear_btn" class="clear_btn" href="#"></a>
+    </div>
+ </div>
+<script type="text/javascript">
+
+Date.prototype.format = function(format) {
+	var o = {
+		"M+" : this.getMonth() + 1, //month
+		"d+" : this.getDate(), //day
+		"h+" : this.getHours(), //hour
+		"m+" : this.getMinutes(), //minute
+		"s+" : this.getSeconds(), //second
+		"q+" : Math.floor((this.getMonth() + 3) / 3), //quarter
+		"S" : this.getMilliseconds() //millisecond
+	};
+	if (/(y+)/.test(format))
+		format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+	for (var k in o)
+	if (new RegExp("(" + k + ")").test(format))
+		format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+	return format;
+}
+
+function NotificationPanel()
+{
+	this.$Notice_notification_contain = $('#notice_notification_contain');
+	this.$Clear_btn = $('#clear_btn');
+	this.$left_btn = $('.left_btn');
+	this.$right_btn = $('.right_btn');
+	this.$toMain = $('#notice_notification_to_main');
+	this.$close = $('#notice_notification_close');
+	this.$main = $('.main');
+	this.notiMsg = [];
+	this.iNow = 0;
+	
+	this.changeNotif();
+	this.deleteNotify();
+	this.closeWindow();
+	this.returnToMain();
+}
+
+NotificationPanel.prototype.clearNotification = function() {
+	this.iNow = 0;
+	this.notiMsg = [];
+	this.$main.children().remove();
+}
+
+NotificationPanel.prototype.deleteNotify = function()
+{
+	var This = this;
+	this.$Clear_btn.unbind('click');
+	this.$Clear_btn.click(function(){
+		if(This.iNow < 0 || This.iNow >= This.notiMsg.length)
+			return;
+			
+		var notification = This.notiMsg[This.iNow];
+		var notificationJson = {};
+		notificationJson.id = notification.id;
+		
+		if(typeof(window.external) != "undefined" && typeof(window.external.deleteNotification) != 'undefined')
+		{
+			window.external.deleteNotification(JSON.stringify(notificationJson));
+		}
+		
+		This.notiMsg.splice(This.iNow, 1);
+		
+		if(This.notiMsg.length == 0){
+			This.iNow = 0;
+			This.$close.trigger("click");
+		} else {
+			This.iNow--;
+			This.$right_btn.trigger('click');
+		}
+	});
+}
+
+NotificationPanel.prototype.notificationHandle = function(packet)
+{
+	if(packet)
+	{
+		var data = JSON.parse(packet);
+		this.notiMsg.push(data);
+		$('.all_count').html(this.notiMsg.length);
+		if(this.$main.children().length == 0){
+			this.createNotifyHtml(this.notiMsg[0])
+		}
+	}	
+}
+
+NotificationPanel.prototype.createNotifyHtml = function(notify){
+	$('.now_count').html(this.iNow + 1);
+	$('.all_count').html(this.notiMsg.length);
+		
+	this.$main.children().remove();
+	var oDate = new Date();
+	oDate.setTime(notify.time);
+	var html = '<div id="notice_notification_main_info" class="main_info"><div class="head_img fl"></div><div class="name_num fl">' + notify.title + '</div><div class="time fr">' + oDate.format('MM-dd hh:mm') + '</div></div><div id="notice_notification_main_txt" class="main_txt"><p>' + notify.desc + '</p></div>';
+	this.$main.html(html);
+	if(notify.icon != null && notify.icon.length > 0){
+		$('.head_img').css({'background-image' : 'url(' + notify.icon + ')'});
+	}
+	else
+	{
+		var headerImgPath = "url('" + ".//images/notice_head_img.jpg" + "')";
+		$('.head_img').css({'background-image' : headerImgPath});
+	}
+}
+
+NotificationPanel.prototype.changeNotif = function()
+{
+	var This = this;
+	this.$left_btn.unbind('click')
+	this.$left_btn.click(function(){
+		This.iNow--;
+		if(This.iNow <= -1)
+		{
+			This.iNow = This.notiMsg.length - 1;
+		}
+		
+		This.createNotifyHtml(This.notiMsg[This.iNow]);
+	});
+	this.$right_btn.unbind('click')
+	this.$right_btn.click(function(){
+		This.iNow++;
+		if(This.iNow >= This.notiMsg.length)
+		{
+			This.iNow = 0;
+		}
+		This.createNotifyHtml(This.notiMsg[This.iNow]);
+	});
+}
+
+NotificationPanel.prototype.closeWindow = function(){
+	var This = this;
+	this.$close.click(function(){
+		if(typeof(window.external) != 'undefined' && typeof(window.external.hidePopWindow) != 'undefined'){
+			window.external.hidePopWindow(0);
+		}
+		
+		This.clearNotification();
+	});
+}
+
+NotificationPanel.prototype.returnToMain = function(){
+	var This = this;
+	this.$toMain.click(function(){
+		if(typeof(window.external) != 'undefined' && typeof(window.external.hidePopWindow) != 'undefined'){
+			window.external.hidePopWindow(1);
+		}
+		
+		This.clearNotification();
+	});
+}
+
+//var strJson = {"packageName": "com.lenovo.linkit", "icon":"/icon/linkit.png", "title": "LINKit", "time":"100","type":"sys","desc":"这里是通知内容"};
+//var str = JSON.stringify(strJson);
+var oNotificationPanel = new NotificationPanel();
+
+function showNotification(packet)
+{
+	oNotificationPanel.notificationHandle(packet);
+}
+
+function clearMsgWindow()
+{
+	oNotificationPanel.clearNotification();
+}
+
+/*var json ={
+		"id": "1",
+		"packageName": "com.lenovo.linkit",
+		"icon":"/iconnkit.png",
+		"title": "LINKit",
+		"time":"20140902",
+		"type": "sys",
+		"desc": "32232424",
+	}
+showNotification(JSON.stringify(json));
+json.desc = '111111';
+showNotification(JSON.stringify(json));
+json.desc = 'eserrerrw';
+showNotification(JSON.stringify(json));
+json.desc = 'esdssffsfsfsfrrw';
+showNotification(JSON.stringify(json));
+json.desc = '546456464';
+showNotification(JSON.stringify(json));*/
+
+</script>
+</body>
+</html>

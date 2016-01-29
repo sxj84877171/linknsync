@@ -1,0 +1,28 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainPanel"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_guide" >
+
+    <include
+        android:id="@+id/splish"
+        layout="@layout/splish_1" />
+
+    <ViewFlipper
+        android:id="@+id/ViewFlipper1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone" >
+    </ViewFlipper>
+
+    <FrameLayout
+        android:id="@+id/main"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone" >
+        <include layout="@layout/main" />
+        <include layout="@layout/notification_setting"/>
+    </FrameLayout>
+
+</FrameLayout>

@@ -1,0 +1,8 @@
+﻿<update>     
+	<version>1.4.62</version>       
+	<name>cleanspace.apk</name>     
+	<url>http://thelinkit.com/photoclean/update/test/CleanSpace1.4.62.apk</url>
+	<testUrl>http://thelinkit.com/photoclean/update/test/CleanSpace1.4.62.apk</testUrl>
+	<force>false</force>
+	<description>1.4.62</description>
+</update>

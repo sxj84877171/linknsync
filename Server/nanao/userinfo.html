@@ -1,0 +1,84 @@
+<html>
+<head>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$('#list').children().remove();
+	
+	getUserinfo();
+});
+
+function getUserinfo() {
+	$.ajax({
+		type: 'get',
+		url: '/usr/query',
+		success: function(result) {
+				try {
+					$('#list').children().remove();
+					
+					var users = JSON.parse(result);
+					if(users) {
+						for(var i in users) {
+							var usr = users[i];
+							var $item = $('<div class="item"><div class="desc" /><div class="token"></div></div>');
+							
+							var desc = $item.find('.desc');
+							desc.text(usr.name);
+
+							var token = $item.find('.token');
+							token.text(usr.token);
+							
+							$('#list').append($item);
+						}
+					} else {
+						alert('Failed');
+					}
+				} catch(e) {
+				}
+			},
+		error: function() {
+		}
+	});
+}
+</script>
+
+<style type="text/css">
+.list {
+    width:100%;
+	height: 400px;
+    overflow:auto;
+	overflow-x: hidden;
+	background-color:#e1e3e0;
+	border-top:1px solid #ccc;
+}
+
+.list .item {
+	height: 24px;
+}
+
+.list .item .desc {
+	width: 15%;
+	float:left;
+}
+
+.list .item .token {
+	width: 70%;
+	float:left;
+}
+</style>
+</head>
+
+<body>
+
+<form method="get" action="/usr/login">
+	<input type="input" id="usr" name="usr" value="">
+	<input type="input" id="token" name="token" value="">
+  <input type="submit" value="Submit"></input>
+</form>
+
+<div id="list" class="list">
+	<div class="item"><div class="desc"></div><div class="token"></div></div>
+</div>
+
+</body>
+</html>

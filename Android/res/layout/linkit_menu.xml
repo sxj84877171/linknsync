@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#000000"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/about"
+        android:textColor="#ffffff" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/update"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/update"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/notification"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/notification_setting"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:id="@+id/developer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/developer"
+        android:textColor="#ffffff"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/log"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/log"
+        android:textColor="#ffffff"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/facebook"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login_facebook"
+        android:textColor="#ffffff" />
+    
+     <TextView
+        android:id="@+id/exit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exit"
+        android:textColor="#ffffff" />
+
+</LinearLayout>

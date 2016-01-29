@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="0dp"
+    android:layout_marginRight="0dp"
+    android:background="@color/com_lenovo_lsf_appcolor"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/ac_titlelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical" >
+        <TextView
+            android:id="@+id/ac_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:paddingBottom="16dp"
+            android:text="@string/com_lenovo_lsf_active_account"
+            android:textColor="#191919"
+            android:textSize="22sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#a3a3a3" />
+
+    <LinearLayout
+        style="@style/com_lenovo_lsf_content.left"
+        android:background="@color/com_lenovo_lsf_appcolor"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dip"
+            android:text="@string/com_lenovo_lsf_verifylink"
+            android:textColor="#191919"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/name_mail"
+            style="@style/com_lenovo_lsf_text_limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"
+            android:textAppearance="@style/com_lenovo_lsf_text" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dip"
+            android:text="@string/com_lenovo_lsf_verifylink_login"
+            android:textColor="#191919"
+            android:layout_marginTop="14dp"
+            android:textSize="14sp" 
+            android:layout_marginBottom="16dip"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#a3a3a3" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"> 
+        
+         <TextView
+            android:id="@+id/ac_ok"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/button_active_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/com_lenovo_lsf_lenovouser_btn_ok"
+            android:textColor="@drawable/com_lenovo_lsf_dialog_button_text_field_selector"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>

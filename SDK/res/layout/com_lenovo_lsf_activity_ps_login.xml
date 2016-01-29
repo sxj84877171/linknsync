@@ -1,0 +1,236 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:background="#ffffff" >
+
+    <LinearLayout
+        android:id="@+id/title_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#ffffff" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="52dp"
+            android:layout_gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/title_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/com_lenovo_lsf_title_back_selector"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/title_back"
+                android:layout_toLeftOf="@+id/tv_login_register"
+                android:gravity="center_vertical"
+                android:text="@string/com_lenovo_lsf_lenovouser_app_name"
+                android:textColor="#191919"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@id/tv_login_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="16dp"
+                android:text="@string/com_lenovo_lsf_login_entrance_onekey_tips1"
+                android:textColor="#0b7cd9"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#dddddd" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/re_login_up"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/re_login_down"
+        android:layout_below="@id/title_layout"
+        android:background="@color/com_lenovo_lsf_appcolor" >
+
+        <TextView
+            android:id="@+id/tv_login_up_title1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:layout_marginLeft="36dp"
+        	android:layout_marginRight="36dp"
+            android:gravity="center"
+            android:text="@string/com_lenovo_lsf_login_entrance_onekey_show1"
+            android:textColor="#191919"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tv_login_up_title2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_login_up_title1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="36dp"
+        	android:layout_marginRight="36dp"
+        	android:gravity="center"
+            android:text="@string/com_lenovo_lsf_login_entrance_onekey_show2"
+            android:textColor="#474747"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/tv_login_up_title3"
+            android:layout_below="@id/tv_login_up_title2" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="#ffffff"
+                android:src="@drawable/com_lenovo_lsf_onekey_pic" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_login_up_title3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="0dp"
+            android:text="@string/com_lenovo_lsf_login_entrance_onekey_show3"
+            android:textColor="#757575"
+            android:textSize="12sp"
+            android:visibility="invisible" />
+    </RelativeLayout>
+	
+    <RelativeLayout
+        android:id="@+id/re_login_down"
+        android:layout_width="fill_parent"  
+        android:layout_height="200dp"
+ 		android:layout_alignParentBottom="true" 
+ 		android:background="@color/com_lenovo_lsf_appcolor" >
+		
+        <TextView
+            android:id="@+id/tv_onekeylogin_error"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="36dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginTop="12dp"
+            android:textColor="#ff0000"
+            android:textSize="14sp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/b_login_button1"
+            android:layout_width="fill_parent"
+            android:layout_height="42dp"
+            android:layout_marginLeft="56dp"
+            android:layout_marginRight="56dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="90dp"
+            android:background="@drawable/btn_inter_onekey_selector_up"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/b_login_button2"
+            android:layout_width="fill_parent"
+            android:layout_height="42dp"
+            android:layout_marginLeft="56dp"
+            android:layout_marginRight="56dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="28dp"
+            android:background="@drawable/com_lenovo_lsf_btn_inter_onekey_selector"
+            android:textColor="@drawable/com_lenovo_lsf_button_font_style_white"
+            android:textSize="18sp"
+            android:visibility="gone" />
+
+		<TextView
+            android:id="@+id/tv_onekeylogin_infor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="60dp"
+            android:textColor="#a3a3a3"
+            android:textSize="12sp"
+            android:text="@string/com_lenovo_lsf_login_entrance_onekey_infor"
+            android:visibility="gone" />
+		
+		<TextView
+            android:id="@+id/tv_otherlogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="22dp"
+            android:textColor="#0b7cd9"
+            android:textSize="14sp"
+            android:text="@string/com_lenovo_lsf_login_entrance_otherlogin_text"
+            android:visibility="gone" />
+
+		<TextView
+		    android:id="@+id/tv_emaillogin"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_toLeftOf="@+id/img_divider"
+	        android:layout_marginRight="24dp"
+	        android:layout_alignParentBottom="true"
+	        android:layout_marginBottom="52dp"
+	        android:textColor="#0b7cd9"
+	        android:textSize="14sp"
+	        android:text="@string/com_lenovo_lsf_login_entrance_emaillogin_text"
+	        android:visibility="gone" />
+		
+		<ImageView
+		    android:id="@+id/img_divider"
+	        android:layout_width="wrap_content"
+	        android:layout_height="16dp"
+	        android:layout_centerHorizontal="true"
+	        android:layout_alignParentBottom="true"
+	        android:layout_marginBottom="52dp"
+	        android:background="#ffffff"
+	        android:src="@drawable/com_lenovo_lsf_account_setting_net_info_bg"
+	        android:visibility="gone" />
+		
+		<TextView
+	        android:id="@+id/tv_cooperationlogin"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_toRightOf="@id/img_divider"
+	        android:layout_marginLeft="24dp"
+	        android:layout_alignParentBottom="true"
+	        android:layout_marginBottom="52dp"
+	        android:textColor="#0b7cd9"
+	        android:textSize="14sp"
+	        android:text="@string/com_lenovo_lsf_login_entrance_cooperationaccountlogin_text"
+	        android:visibility="gone" />		
+	
+    </RelativeLayout>
+    
+    <TextView 
+	    android:id="@+id/lefactory_flag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:text="@string/notes"
+        android:textColor="#aaaaaa"
+        android:textSize="12sp"
+        android:visibility="invisible"/>
+        
+</RelativeLayout>

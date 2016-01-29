@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="0dp"
+    android:layout_marginRight="0dp"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/lenovodialog_titlelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/lenovodialog_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:paddingBottom="16dp"
+            android:text="标题"
+            android:textColor="#191919"
+            android:textSize="22sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#a3a3a3" />
+
+    <RelativeLayout
+        android:id="@+id/lenovodialog_tiplayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="76dp" >
+
+        <TextView
+            android:id="@+id/lenovodialog_tip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_horizontal"
+            android:padding="16dp"
+            android:text="当前无网络,络设置?"
+            android:textColor="#191919"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/lenovodialog_extralayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#a3a3a3" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/lenovodialog_cancel"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/com_lenovo_lsf_list_item_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:focusable="true"
+            android:text="@string/com_lenovo_lsf_lenovouser_btn_cancel"
+            android:textColor="@drawable/com_lenovo_lsf_dialog_button_text_field_selector"
+            android:textSize="18sp" />
+
+        <View
+            android:id="@+id/lenovodialog_ok_cancel_mid"
+            android:layout_width="1px"
+            android:layout_height="28dp"
+            android:layout_gravity="center_vertical"
+            android:background="#d1d1d1" />
+
+        <TextView
+            android:id="@+id/lenovodialog_ok"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/com_lenovo_lsf_list_item_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="@string/com_lenovo_lsf_change_string_confirm"
+            android:textColor="@drawable/com_lenovo_lsf_dialog_button_text_field_selector"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</LinearLayout>
